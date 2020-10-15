@@ -7,7 +7,7 @@ include('include/header.php');
     <div class="card">
       <img src="img/about.jpg" alt="Avatar" style="width:100%;">
       <div class="container">
-        <h4><b>Search for  of Jobs</b></h4>
+        <h4><b>Search for Millions of Jobs</b></h4>
         <p>Bla bla bla bla</p>
       </div>
     </div>
