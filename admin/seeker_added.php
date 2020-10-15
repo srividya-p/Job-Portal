@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 include("connection/db.php");
 
 $email = $_POST['email'];
@@ -14,7 +14,7 @@ admin_username, first_name, last_name, user_type) values('$email', '$password',
  '$username', '$first_name', '$last_name', '$user_type')");
 
 if($query){
-    echo "Success!";
+    echo "Data Inserted Sucessfully!";
 }else{
     echo "Error!";}
 

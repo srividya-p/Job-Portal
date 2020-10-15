@@ -28,7 +28,7 @@ if (mysqli_num_rows($query)>0){
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="post_job.php">
+                        <a class="nav-link" href="job.php">
                             <span data-feather="bar-chart-2"></span>
                             Post a Job
                         </a>
@@ -86,7 +86,7 @@ if (mysqli_num_rows($query)>0){
                     </li>
     
                     <li class="nav-item">
-                        <a class="nav-link" href="post_job.php">
+                        <a class="nav-link" href="job.php">
                             <span data-feather="bar-chart-2"></span>
                             Post a Job
                         </a>
