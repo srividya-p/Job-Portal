@@ -2,7 +2,7 @@
 include('include/header.php');
 ?>
 
-<body>
+  </div>
   <div id="info">
     <div class="card">
       <img src="img/about.jpg" alt="Avatar" style="width:100%;">
@@ -61,6 +61,7 @@ include('include/header.php');
   </div>
   </section>
   </div>
+  <script src="myScript.js"></script>
 </body>
 
 <?php 

@@ -36,7 +36,7 @@
                     <div class="container-login-form-btn p-t-25">
                         <input class="login-form-btn" id="submit" name="submit" value="Sign In" type="submit">
                         OR
-                        <anchor href="create_account.php" class="login-form-btn">Create an Account</anchor>
+                        <a href="seeker_signup.php" class="login-form-btn">Create an Account</a>
                     </div>
                 </form>
             </div>

@@ -1,0 +1,136 @@
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic');
+
+
+*{
+margin:0;
+padding:0;
+line-height:1.5;
+box-sizing: border-box;
+}
+
+.wrapper{
+  margin-left: auto;
+  margin-right: auto;
+}
+#reg-image{
+  text-align: center;
+  background-image: url("/Job-Portal/images/signupbg.png");
+  background-size: 100%;
+  filter: brightness(90%);
+  height: 500px;
+  background-repeat: no-repeat;
+}
+.bg-image{
+  background-image: url("/Job-Portal/images/signup.png");
+  background-size: 100%;
+  filter: brightness(90%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.formcontainer {
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-left: 200px;
+  margin-right: 200px;
+ background-color:  #F0F3F7;
+}
+
+.title{
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  color: #35B2B4;
+  margin-top:10px;
+  font-size: 45px;
+  text-align:center;
+}
+
+.form-section{
+  max-width:700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows:30px auto 30px auto;
+  grid-row-gap:10px;
+  padding:10px;
+  justify-content: center;
+}
+ p.sub-head{
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight:500;
+	color: black;
+  font-size: 30px;
+  text-align: center;
+}
+.form-top{
+  max-width:1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns:400px 400px;
+  grid-column-gap:50px;
+  padding:10px;
+  justify-content: center;
+}
+.form-bottom{
+  max-width:1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns:400px 400px;
+  grid-column-gap:50px;
+  padding:10px;
+  justify-content: center;
+}
+.form-control{
+  font-size:18px;
+}
+ input[class="form-control"]{
+width:100%;
+padding:12px 12px;
+margin:8px 0;
+box-sizing: border-box;
+outline:none;
+}
+textarea{
+  width:100%;
+  height:100px;
+  margin-top: 8px;
+  padding:12px 12px;
+  box-sizing:border-box;
+  resize:none;
+  outline:none;
+}
+
+label{
+  display: block;
+  font-size: 16px;
+  font-weight: 550;
+}
+input[type="checkbox"]{
+  position: relative;
+  height: 20px;
+  width: 20px;
+  margin-top:35px;
+}
+
+button.register{
+  margin-left:250px;
+  margin-top:50px;
+  background-color: #4CAF50;
+  height: 40px;
+  width: 350px;
+  color: black;
+  padding: 4px;
+  text-align: center;
+  font-size: 20px;
+  border: solid 1px black;
+}
+#text-center{
+  font-family: 'Source Sans Pro';
+  font-size: 22px;;
+  margin-top:20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}

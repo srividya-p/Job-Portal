@@ -12,7 +12,7 @@
     <div class="limiter">
         <div class="container-login">
             <div class="wrap-login p-l-50 p-r-50 p-t-77 p-b-30">
-                <form class="login-form" id="admin_login" method="POST" action="admin_login.php">
+                <form class="login-form" id="provider_signin.php" method="POST" action="admin/admin_login.php">
                     <span class="login-form-title p-b-55">
                         Company Sign In
                     </span>
@@ -36,10 +36,30 @@
                     <div class="container-login-form-btn p-t-25">
                         <input class="login-form-btn" id="submit" name="submit" placeholder="Sign In" type="submit">
                     </div>
+
                 </form>
             </div>
         </div>
     </div>
 </body>
-
 </html>
+<?php
+include('connection/db.php');
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+
+    $query = mysqli_query($conn, "select * from admin_login where admin_email='$email' 
+    and admin_pass='$pass' and admin_type='2'");
+
+    if ($query) {
+        if (mysqli_num_rows($query)) {
+            $_SESSION['email'] = $email;
+            header('location:admin/admin_dashboard.php'); //jhol
+        } else {
+            echo "<script>alert('Invalid Credentials! Please try again.')</script>";
+        }
+    }
+}
+?>
