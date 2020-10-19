@@ -35,7 +35,7 @@ CREATE TABLE `admin_login` (
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `user_type` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `admin_login`
@@ -56,7 +56,7 @@ CREATE TABLE `company` (
   `company_id` int NOT NULL,
   `company_name` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `company`
@@ -80,7 +80,7 @@ CREATE TABLE `jobs` (
   `country` varchar(50) NOT NULL,
   `state` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `jobs`
@@ -118,7 +118,7 @@ CREATE TABLE `job_seeker` (
   `aboutme` varchar(255) DEFAULT NULL,
   `skills` varchar(255) DEFAULT NULL,
   `resume` mediumblob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `job_seeker`
@@ -137,7 +137,7 @@ INSERT INTO `job_seeker` (`id`, `fname`, `lname`, `email`, `password`, `mobileno
 CREATE TABLE `user_type` (
   `id` int NOT NULL,
   `type` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user_type`

@@ -24,7 +24,7 @@ if (mysqli_num_rows($query)>0){
                     <li class="nav-item">
                         <a class="nav-link" href="job_seeker.php">
                             <span data-feather="users"></span>
-                            Job Seekers
+                            All Users
                         </a>
                     </li>
                     <li class="nav-item">

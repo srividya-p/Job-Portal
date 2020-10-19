@@ -18,7 +18,7 @@ session_start();
             <div class="wrap-login p-l-50 p-r-50 p-t-77 p-b-30">
                 <form class="login-form" id="admin_login" method="POST" action="admin_login.php">
                     <span class="login-form-title p-b-55">
-                        Login
+                        Admin Login
                     </span>
 
                     <div class="wrap-input m-b-16">
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
     $pass = $_POST['pass'];
 
     $query = mysqli_query($conn, "select * from admin_login where admin_email='$email' 
-    and admin_pass='$pass'");
+    and admin_pass='$pass' and user_type = '1'");
 
     if ($query) {
         if (mysqli_num_rows($query)) {

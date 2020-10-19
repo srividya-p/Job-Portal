@@ -1,3 +1,8 @@
+<?php 
+
+session_start();
+
+?>
 <html>
 
 <head>
@@ -12,13 +17,13 @@
     <div class="limiter">
         <div class="container-login">
             <div class="wrap-login p-l-50 p-r-50 p-t-77 p-b-30">
-                <form class="login-form" id="provider_signin.php" method="POST" action="admin/admin_login.php">
+                <form class="login-form" id="provider_signin" method="POST" action="provider_signin.php">
                     <span class="login-form-title p-b-55">
                         Company Sign In
                     </span>
 
                     <div class="wrap-input m-b-16">
-                        <input class="input" type="text" name="email" placeholder="Email" autocomplete="no">
+                        <input class="input" type="text" id="email" name="email" placeholder="Email" autocomplete="no">
                         <span class="focus-input"></span>
                         <span class="symbol-input">
                             <span class="lnr lnr-envelope"></span>
@@ -26,7 +31,7 @@
                     </div>
 
                     <div class="wrap-input m-b-16">
-                        <input class="input" type="password" name="pass" placeholder="Password">
+                        <input class="input" type="password" id = "pass" name="pass" placeholder="Password">
                         <span class="focus-input"></span>
                         <span class="symbol-input">
                             <span class="lnr lnr-lock"></span>
@@ -51,15 +56,18 @@ if (isset($_POST['submit'])) {
     $pass = $_POST['pass'];
 
     $query = mysqli_query($conn, "select * from admin_login where admin_email='$email' 
-    and admin_pass='$pass' and admin_type='2'");
-
+    and admin_pass='$pass' and user_type='2'");
+    var_dump($query);
     if ($query) {
-        if (mysqli_num_rows($query)) {
+        if (mysqli_num_rows($query)>0) {
             $_SESSION['email'] = $email;
-            header('location:admin/admin_dashboard.php'); //jhol
+            echo $_SESSION['email'];
+            header('location:admin/admin_dashboard.php'); 
         } else {
             echo "<script>alert('Invalid Credentials! Please try again.')</script>";
         }
+    } else {
+        echo "<script>alert('Error')</script>";  
     }
 }
 ?>
