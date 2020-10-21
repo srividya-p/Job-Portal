@@ -1,0 +1,96 @@
+@font-face {
+	font-family: Raleway-SemiBold;
+	src: url('../fonts/raleway/Raleway-SemiBold.ttf'); 
+}
+
+
+#content{
+	width: 90%;
+	margin: 30px auto;
+	border: 1px solid black;
+	grid-column: 1;
+}
+.grid-container1 {
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 50% 50% ;
+	grid-gap: 15px;
+	padding: 10px;
+	text-align: center;
+}
+
+body{
+	font-family: Raleway-SemiBold;
+}
+
+form
+{
+	width: 70%;
+	margin: 10px auto;
+}
+
+form div
+{
+	margin-top: 30px;
+}
+
+.register-form .form-control
+{
+	padding: 5px;
+	font-size: 20px;
+	width: 100%;
+
+}
+
+.inp ::-webkit-input-placeholder{
+	color: pink;
+}
+
+.register-form {
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+.register-form .btn
+{
+	color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: #2BCE18;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+	width: 200px;
+	font-family: Raleway-SemiBold;
+	border-radius: 20px;
+}
+
+body{
+    font-size: 20px;
+}
+
+p.sub-head{
+	font-style: normal;
+	font-weight:500;
+	  color: black;
+	font-size: 30px;
+	text-align: center;
+  }
+
+.login-form{
+	background-color: #F0F3F7; 
+	width: 35%; 
+	height: 470px; 
+	padding: 20px; 
+}
+
+.title{
+	font-style: normal;
+	font-weight: 400;
+	color: #35B2B4;
+	margin-top:10px;
+	font-size: 45px;
+	text-align:center;
+  }

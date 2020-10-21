@@ -10,11 +10,11 @@ include('include/sidebar.php');
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="company.php">Companies</a></li>
+            <li class="breadcrumb-item"><a href="seeker.php">Job Seekers</a></li>
         </ol>
     </nav>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Companies</h1>
+        <h1 class="h2">Job Seekers</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
             </div>
@@ -23,47 +23,41 @@ include('include/sidebar.php');
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Company Name</th>
-                <th>Description</th>
-                <th>Country</th>
-                <th>Stream</th>
-                <th>Website</th>
-                <th>Date of Formation</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Email</th>
-                <th>Phone</th>
-                <th>Password</th>
-                <th>Profile Picture</th>
-                <th>Formation Documents</th>
+                <th>Mobile Number</th>
+                <th>Country</th>
+                <th>Age</th>
+                <th>Qualification</th>
+                <th>CGPA</th>
+                <th>Resume</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <?php
             include('connection/db.php');
-            $query = mysqli_query($conn, "select * from company where verified=1");
+            $query = mysqli_query($conn, "select * from job_seeker");
             while ($row = mysqli_fetch_array($query)) {
             ?>
                 <tr>
-                    <td><?php echo $row['name'] ?></td>
-                    <td><?php echo $row['description'] ?></td>
-                    <td><?php echo $row['country'] ?></td>
-                    <td><?php echo $row['stream'] ?></td>
-                    <td><?php echo $row['website'] ?></td>
-                    <td><?php echo $row['date'] ?></td>
+                    <td><?php echo $row['fname'] ?></td>
+                    <td><?php echo $row['lname'] ?></td>
                     <td><?php echo $row['email'] ?></td>
-                    <td><?php echo $row['phone'] ?></td>
-                    <td><?php echo $row['password'] ?></td>
+                    <td><?php echo $row['mobileno'] ?></td>
+                    <td><?php echo $row['country'] ?></td>
+                    <td><?php echo $row['age'] ?></td>
+                    <td><?php echo $row['qualification'] ?></td>
+                    <td><?php echo $row['cgpa'] ?></td>
                     <td>
-                        <button data-feather="eye" onclick="showPic('<?php echo $row['photo'] ?>')"></button>
-                    </td>
-                    <td>
-                        <button data-feather="eye" onclick="showDoc('<?php echo $row['form_doc'] ?>')"></button>
+                        <button data-feather="eye" onclick="showDoc('<?php echo $row['resume'] ?>')"></button>
                     </td>
                     <td>
                         <div class="row">
                             <div class="btn-group">
-                                <a href="company_edit.php?id=<?php echo $row['id'] ?>" class="btn btn-success glyphicon glyphicon-pencil"><span class=""></span></a>
-                                <a href="company_delete.php?del=<?php echo $row['id'] ?>" class="btn btn-danger glyphicon glyphicon-trash"><span class=""></span></a>
+                                <a href="seeker_edit.php?id=<?php echo $row['id'] ?>" class="btn btn-success glyphicon glyphicon-pencil"><span class=""></span></a>
+                                <a href="seeker_delete.php?del=<?php echo $row['id'] ?>" class="btn btn-danger glyphicon glyphicon-trash"><span class=""></span></a>
                             </div>
                         </div>
                     </td>
@@ -72,17 +66,15 @@ include('include/sidebar.php');
         </tbody>
         <tfoot>
             <tr>
-                <th>Company Name</th>
-                <th>Description</th>
-                <th>Country</th>
-                <th>Stream</th>
-                <th>Website</th>
-                <th>Date of Formation</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Email</th>
-                <th>Phone</th>
-                <th>Password</th>
-                <th>Profile Picture</th>
-                <th>Formation Documents</th>
+                <th>Mobile Number</th>
+                <th>Country</th>
+                <th>Age</th>
+                <th>Qualification</th>
+                <th>CGPA</th>
+                <th>Resume</th>
                 <th>Action</th>
             </tr>
         </tfoot>
@@ -92,10 +84,6 @@ include('include/sidebar.php');
 </div>
 
 <script>
-    function showPic(pth) {
-        window.open(pth, '_blank');
-    }
-
     function showDoc(pth) {
         window.open(pth, '_blank');
     }

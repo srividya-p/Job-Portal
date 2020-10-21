@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="css/style.css"></link>
+  <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 </head>
 
 <header>
@@ -18,9 +19,9 @@
         <a href="index.php">Home</a>
         <a href="about.php">About</a>
         <a href="blog.php">Blog</a>
-        <a href="contact.php">Contact</a>
-        <a href = "provider_signin.php" style = "background-color: blue;" >Post a Job</a>
-        <a href = "seeker_signin.php" style="background-color: green;" >Want a Job</a>
+        <a href="contact.php">Contact</a> 
+        <a href = "company_signin.php" style = "background-color: #1963E4; border-radius: 10px;" >Post a Job</a> 
+        <a href = "seeker_signin.php" style="background-color: #19E491; border-radius: 10px;" >Want a Job</a>
       </div>
     </div>
 

@@ -56,12 +56,12 @@ if (isset($_POST['submit'])) {
     $pass = $_POST['pass'];
 
     $query = mysqli_query($conn, "select * from admin_login where admin_email='$email' 
-    and admin_pass='$pass' and user_type = '1'");
+    and admin_pass='$pass'");
 
     if ($query) {
         if (mysqli_num_rows($query)) {
             $_SESSION['email'] = $email;
-            header('location:admin_dashboard.php');
+            header('location:dashboard.php');
         } else {
             echo "<script>alert('Invalid Credentials! Please try again.')</script>";
         }

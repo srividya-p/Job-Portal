@@ -12,7 +12,7 @@
     <div class="limiter">
         <div class="container-login">
             <div class="wrap-login p-l-50 p-r-50 p-t-77 p-b-30">
-                <form class="login-form" id="admin_login" method="POST" action="admin_login.php">
+                <form class="login-form" id="admin_login" method="POST" action="seeker_signin.php">
                     <span class="login-form-title p-b-55">
                         Job Seeker Sign In
                     </span>
@@ -36,7 +36,7 @@
                     <div class="container-login-form-btn p-t-25">
                         <input class="login-form-btn" id="submit" name="submit" value="Sign In" type="submit">
                         OR
-                        <a href="seeker_signup.php" class="login-form-btn">Create an Account</a>
+                        <a href="seeker_signup.php" class="login-form-btn" style="text-decoration: none">Create an Account</a>
                     </div>
                 </form>
             </div>
@@ -45,3 +45,26 @@
 </body>
 
 </html>
+
+<?php
+include('connection/db.php');
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $pass = base64_encode(strrev(md5($_POST['pass'])));
+
+    $query = mysqli_query($conn, "select email, password from job_seeker where email='$email' 
+    and password='$pass'");
+    //var_dump($query);
+    if ($query) {
+        if (mysqli_num_rows($query) > 0) {
+            $_SESSION['email'] = $email;
+            header('location:seeker_dashboard.php');
+        } else {
+            echo "<script>alert('Invalid Credentials! Please try again.')</script>";
+        }
+    } else {
+        echo "<script>alert('Error')</script>";
+    }
+}
+?>

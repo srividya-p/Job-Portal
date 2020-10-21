@@ -1,21 +1,25 @@
 <?php
 include("connection/db.php");
-
+include('include/country_codes.php');
 include('include/header.php');
 include('include/sidebar.php');
 
 $id = $_GET['id'];
 
-$query = mysqli_query($conn, "select * from admin_login where id = $id");
+$query = mysqli_query($conn, "select * from job_seeker where id = $id");
 
 while ($row = mysqli_fetch_array($query)) {
-    $email = $row['admin_email'];
-    $username = $row['admin_username'];
-    $first_name = $row['first_name'];
-    $last_name = $row['last_name'];
-    $password = $row['admin_pass'];
-    $user_type = $row['user_type'];
+    $fname = $row['fname'];
+    $lname = $row['lname'];
+    $email = $row['email'];
+    $phone = $row['mobileno'];
+    $country = $row['country'];
+    $age = $row['age'];
+    $qual = $row['qualification'];
+    $cgpa = $row['cgpa'];
 }
+
+$code = array_search($country, $countrycodes);
 
 ?>
 
@@ -27,9 +31,9 @@ while ($row = mysqli_fetch_array($query)) {
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="admin_dashboard.php">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="job_seeker.php">Job Seekers</a></li>
-            <li class="breadcrumb-item"><a href="add_job_seeker.php">Edit Job Seeker</a></li>
+            <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="seeker.php">Job Seekers</a></li>
+            <li class="breadcrumb-item"><a href="seeker_edit.php">Edit Job Seeker</a></li>
         </ol>
     </nav>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
@@ -40,47 +44,54 @@ while ($row = mysqli_fetch_array($query)) {
         </div>
     </div>
     <div style="width: 60%; margin-left:20%; background-color:beige;">
-        <form action="" style="margin:3%; padding:3%;" name="seeker_form" id="seeker_form" action="" method="POST">
-            <div class="form-group">
-                <label for="Seeker Email">Enter Seeker Email</label>
-                <input type="email" name="email" value="<?php echo $email ?>" class="form-control" placeholder="Enter Email">
-            </div>
-
-            <div class="form-group">
-                <label for="Seeker Username">Enter Username</label>
-                <input type="text" name="username" value="<?php echo $username ?>" class="form-control" placeholder="Enter Username">
-            </div>
-
+        <form action="" style="margin:3%; padding:3%;" name="company_form" id="company_form" action="" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="First Name">Enter First Name</label>
-                <input type="text" name="first_name" value="<?php echo $first_name ?>" class="form-control" placeholder="Enter First Name">
+                <input type="text" name="fname" value="<?php echo $fname ?>" class="form-control" placeholder="First Name">
             </div>
 
             <div class="form-group">
                 <label for="Last Name">Enter Last Name</label>
-                <input type="text" name="last_name" value="<?php echo $last_name ?>" class="form-control" placeholder="Enter Last Name">
+                <input type="text" name="lname" value="<?php echo $lname ?>" class="form-control" placeholder="Last Name">
+            </div>
+            
+            <div class="form-group">
+                <label for="Email">Enter Seeker Email</label>
+                <input type="text" name="email" value="<?php echo $email ?>" class="form-control" placeholder="Email">
             </div>
 
             <div class="form-group">
-                <label for="Password">Enter Password</label>
-                <input type="password" name="password" value="<?php echo $password ?>" class="form-control" placeholder="Enter Password">
+                <label for="Phone">Enter Seeker Phone</label>
+                <input type="text" name="phone" value="<?php echo $phone ?>" class="form-control" placeholder="Phone">
             </div>
 
             <div class="form-group">
-                <label for="User Type">User Type</label>
-                <select name="user_type" class="form-control" id="user_type" value="<?php echo $user_type ?>">
-                    <option value="1">Admin</option>
-                    <option value="2">Seeker</option>
+                <label for="Country">Enter Country</label>
+                <select name="country" class="countries form-control presel-<?php echo $code?>" id="countryId">
+                    <option>Select Country</option>
                 </select>
             </div>
 
-            <input type="hidden" name="id" id="id" value="<?php echo $_GET['id'] ?>">
+            <div class="form-group">
+                <label for="Stream">Enter Seeker Age</label>
+                <input type="text" name="age" value="<?php echo $age ?>" class="form-control" placeholder="Age">
+            </div>
+            
+            <div class="form-group">
+                <label for="Qualification">Enter Seeker Qualification</label>
+                <input type="text" name="qual" value="<?php echo $qual ?>" class="form-control" placeholder="Qualification">
+            </div>
+
 
             <div class="form-group">
-                <input name="submit" id="submit" type="submit" class="btn btn-success" value="Save">
+                <label for="Password">Enter Seeker CGPA</label>
+                <input type="text" name="cgpa" value="<?php echo $cgpa ?>" class="form-control" placeholder="CGPA">
+            </div>
+
+            <div class="form-group">
+                <input name="submit" id="submit" type="submit" class="btn btn-success" placeholder="SAVE">
             </div>
         </form>
-        <div id='msg'></div>
     </div>
 </main>
 </div>
@@ -118,17 +129,19 @@ while ($row = mysqli_fetch_array($query)) {
 include("connection/db.php");
 
 if (isset($_POST['submit'])) {
-    $Id = $_POST['id'];
-    $Email = $_POST['email'];
-    $Username = $_POST['username'];
-    $First_name = $_POST['first_name'];
-    $Last_name = $_POST['last_name'];
-    $Password = $_POST['password'];
-    $User_type = $_POST['user_type'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $country = $_POST['country'];
+    $age = $_POST['age'];
+    $qual = $_POST['qual'];
+    $cgpa = $_POST['cgpa'];
+    
 
-    $query1 = mysqli_query($conn, "update admin_login set admin_email='$Email', admin_pass='$Password',
-admin_username = '$Password', first_name = '$First_name', last_name = '$Last_name', user_type='$user_type'
- where id=$id");
+    $query1 = mysqli_query($conn, "update job_seeker set fname='$fname', lname='$lname',
+    country='$country', email='$email', mobileno='$phone', age='$age', qualification='$qual',
+    cgpa='$cgpa' where id=$id");
 
     if ($query) {
         echo "<script>alert('Record updated successfully!')</script>";

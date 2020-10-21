@@ -1,5 +1,10 @@
-body, html{
+@font-face {
+	font-family: Raleway-Black;
+	src: url('../fonts/raleway/Raleway-Black.ttf'); 
+}
+html, body{
     font-size: .875rem;
+    font-family: Raelway-Black;
   }
   
   .feather {

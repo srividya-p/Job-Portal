@@ -1,6 +1,8 @@
 <?php
 include('include/header.php');
 include('connection/db.php');
+define ('SITE_ROOT', realpath(dirname(__FILE__)));
+
 if (isset($_POST['submit'])) {
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
@@ -8,6 +10,7 @@ if (isset($_POST['submit'])) {
   $password = $_POST['password'];
   $mobileno = $_POST['mobileno'];
   $address = $_POST['address'];
+  $country = $_POST['country'];
   $city = $_POST['city'];
   $state = $_POST['state'];
   $dob = $_POST['dob'];
@@ -18,13 +21,18 @@ if (isset($_POST['submit'])) {
   $cgpa = $_POST['cgpa'];
   $aboutme = $_POST['aboutme'];
   $skills = $_POST['skills'];
-  $resume = basename($_FILES['resume']['name']);
+  
+  $targetResume = SITE_ROOT.'/seekerFiles/resumes/'.$_FILES['resume']['name'];
+  $resume = '/ip/seekerFiles/resumes/'.$_FILES['resume']['name'];
+
   //Encrypt Password
   $password = base64_encode(strrev(md5($password)));
+  move_uploaded_file($_FILES['resume']['tmp_name'], $targetResume);
 
-  $query = mysqli_query($conn, "insert into job_seeker(fname, lname, email, password, mobileno, address, city,
+
+  $query = mysqli_query($conn, "insert into job_seeker(fname, lname, email, password, mobileno, address, country, city,
   state, dob, age, qualification, stream, passingyear, cgpa, aboutme, skills, resume) values
-  ('$fname','$lname','$email','$password','$mobileno','$address','$city','$state','$dob', '$age','$qualification','$stream',
+  ('$fname','$lname','$email','$password','$mobileno','$address','$country','$city','$state','$dob', '$age','$qualification','$stream',
   '$passingyear','$cgpa','$aboutme','$skills','$resume')");
 
   if ($query) {
@@ -34,16 +42,12 @@ if (isset($_POST['submit'])) {
     echo "<script>alert('Some error occured please try again!')</script>";
   }
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seeker Registration</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/seeker_signup.css">
   <style>
@@ -72,7 +76,6 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-
   <div class="wrapper">
     <div class="formcontainer">
       <br>
@@ -114,13 +117,22 @@ if (isset($_POST['submit'])) {
                 <input class="form-control" type="number" id="mobileno" name="mobileno" minlength="10" maxlength="10" onkeypress="return validatePhone(event);" placeholder="Mobile Number *" required>
               </div>
               <div>
-                <textarea style="height:132px" type="text" class="form-control" rows="4" id="address" name="address" placeholder="Address"></textarea>
-              </div>
+                <textarea style="height:110px" type="text" class="form-control" rows="4" id="address" name="address" placeholder="Address"></textarea>
+              </div> <br>
               <div>
-                <input class="form-control" type="text" id="city" name="city" placeholder="City">
-              </div>
+                <select name="country" class="countries form-control" id="countryId">
+                  <option value="">Select Country</option>
+                </select>
+              </div> <br>
               <div>
-                <input class="form-control" type="text" id="state" name="state" placeholder="State">
+                <select name="state" class="states form-control" id="stateId">
+                  <option value="">Select State</option>
+                </select>
+              </div> <br>
+              <div>
+              <select name="city" class="cities form-control" id="cityId">
+                    <option value="">Select City</option>
+                </select>
               </div>
             </div>
           </div>
@@ -158,7 +170,7 @@ if (isset($_POST['submit'])) {
           </div>
           <div>
             <button class="register" type="submit" name="submit" id="submit">Register</button>
-            <p id="text-center">Already have an account? <a href="seeker_signin.php">Sign in </a></p>
+            <p id="text-center">Already have an account?&emsp14;<a href="seeker_signin.php">Sign in </a></p>
           </div>
         </div>
       </form>
@@ -269,6 +281,8 @@ if (isset($_POST['submit'])) {
       }
     });
   </script>
+  <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+
 </body>
 
 </html>

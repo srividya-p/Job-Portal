@@ -26,8 +26,8 @@ $code = array_search($country, $countrycodes);
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="admin_dashboard.php">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="job.php">Post a Job</a></li>
+            <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="job.php">Job Posts</a></li>
             <li class="breadcrumb-item"><a href="job_edit.php">Edit Job</a></li>
         </ol>
     </nav>

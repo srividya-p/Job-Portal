@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -17,7 +17,7 @@ session_start();
     <div class="limiter">
         <div class="container-login">
             <div class="wrap-login p-l-50 p-r-50 p-t-77 p-b-30">
-                <form class="login-form" id="provider_signin" method="POST" action="provider_signin.php">
+                <form class="login-form" id="provider_signin" method="POST" action="company_signin.php">
                     <span class="login-form-title p-b-55">
                         Company Sign In
                     </span>
@@ -31,7 +31,7 @@ session_start();
                     </div>
 
                     <div class="wrap-input m-b-16">
-                        <input class="input" type="password" id = "pass" name="pass" placeholder="Password">
+                        <input class="input" type="password" id="pass" name="pass" placeholder="Password">
                         <span class="focus-input"></span>
                         <span class="symbol-input">
                             <span class="lnr lnr-lock"></span>
@@ -40,6 +40,8 @@ session_start();
 
                     <div class="container-login-form-btn p-t-25">
                         <input class="login-form-btn" id="submit" name="submit" placeholder="Sign In" type="submit">
+                        OR
+                        <a href="company_register.php" class="login-form-btn" style="text-decoration: none">Get Registered</a>
                     </div>
 
                 </form>
@@ -47,6 +49,7 @@ session_start();
         </div>
     </div>
 </body>
+
 </html>
 <?php
 include('connection/db.php');
@@ -55,19 +58,19 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $pass = $_POST['pass'];
 
-    $query = mysqli_query($conn, "select * from admin_login where admin_email='$email' 
-    and admin_pass='$pass' and user_type='2'");
-    var_dump($query);
+    $query = mysqli_query($conn, "select * from company where email='$email' 
+    and password='$pass'");
+    //var_dump($query);
     if ($query) {
-        if (mysqli_num_rows($query)>0) {
+        if (mysqli_num_rows($query) > 0) {
             $_SESSION['email'] = $email;
-            echo $_SESSION['email'];
-            header('location:admin/admin_dashboard.php'); 
+            //echo $_SESSION['email'];
+            header('location:admin/dashboard.php');
         } else {
             echo "<script>alert('Invalid Credentials! Please try again.')</script>";
         }
     } else {
-        echo "<script>alert('Error')</script>";  
+        echo "<script>alert('Error')</script>";
     }
 }
 ?>

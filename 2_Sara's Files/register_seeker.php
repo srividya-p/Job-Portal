@@ -88,7 +88,7 @@ session_start();
                       <span id="pwd"> </span>
                     </div>
                     <div>
-                      <input class="form-control" type="number" id="contactno" name="contactno" minlength="10" maxlength="10" style=" " onkeypress="return validatePhone(event);" 
+                      <input class="form-control" type="number" id="contactno" name="contactno" minlength="10" maxlength="10" onkeypress="return validatePhone(event);" 
                       placeholder="Phone Number *"required>
                     </div>
                     <div>

@@ -10,11 +10,11 @@ include('include/sidebar.php');
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="company.php">Companies</a></li>
+            <li class="breadcrumb-item"><a href="uv_company.php">Unverified Companies</a></li>
         </ol>
     </nav>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Companies</h1>
+        <h1 class="h2">Unverified Companies</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
             </div>
@@ -40,7 +40,7 @@ include('include/sidebar.php');
         <tbody>
             <?php
             include('connection/db.php');
-            $query = mysqli_query($conn, "select * from company where verified=1");
+            $query = mysqli_query($conn, "select * from company where verified=0");
             while ($row = mysqli_fetch_array($query)) {
             ?>
                 <tr>
@@ -60,12 +60,12 @@ include('include/sidebar.php');
                         <button data-feather="eye" onclick="showDoc('<?php echo $row['form_doc'] ?>')"></button>
                     </td>
                     <td>
-                        <div class="row">
-                            <div class="btn-group">
-                                <a href="company_edit.php?id=<?php echo $row['id'] ?>" class="btn btn-success glyphicon glyphicon-pencil"><span class=""></span></a>
-                                <a href="company_delete.php?del=<?php echo $row['id'] ?>" class="btn btn-danger glyphicon glyphicon-trash"><span class=""></span></a>
-                            </div>
+                    <div class="row">
+                        <div class="btn-group">
+                            <a href="accept.php?id=<?php echo $row['id'] ?>" class="btn btn-success glyphicon glyphicon-ok"><span class=""></span></a>
+                            <a href="reject.php?del=<?php echo $row['id'] ?>" class="btn btn-danger glyphicon glyphicon-remove"><span class=""></span></a>
                         </div>
+                    </div>
                     </td>
                 </tr>
             <?php } ?>
@@ -100,6 +100,8 @@ include('include/sidebar.php');
         window.open(pth, '_blank');
     }
 </script>
+
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script>

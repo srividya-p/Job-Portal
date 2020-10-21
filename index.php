@@ -1,8 +1,8 @@
-<?php 
+<?php
 include('include/header.php');
 ?>
 
-  </div>
+<body id="bod">
   <div id="info">
     <div class="card">
       <img src="img/about.jpg" alt="Avatar" style="width:100%;">
@@ -14,10 +14,18 @@ include('include/header.php');
     <div class="card">
       <img src="img/about.jpg" alt="Avatar" style="width:100%">
       <div class="container">
-        <h4><b>Look for Top Careers</b></h4>
+        <h4><b>Look for Top Careers in Industry</b></h4>
         <p>Bla bla bla bla</p>
       </div>
     </div>
+    <div class="card">
+      <img src="img/about.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>Easy to manage Jobs</b></h4>
+        <p>Bla bla bla bla</p>
+      </div>
+    </div>
+    
     <div class="card">
       <img src="img/about.jpg" alt="Avatar" style="width:100%">
       <div class="container">
@@ -31,8 +39,8 @@ include('include/header.php');
   <div id="current">
     <div class="head">
       <h2 class="heading"><span>Current</span> Job Posts</h2>
-    </div>
-    <div class="row">
+    </div> <br><br>
+    <div>
       <div class="cat">
         <ul class="category">
           <li><a class="cat-but" href="#">Web Development <span>2000</span></a></li><br><br><br>
@@ -51,19 +59,18 @@ include('include/header.php');
       </div>
       <div class="cat">
         <ul class="category">
-          <li><a class="cat-but" href="#">PHP Programming <span >5500</span></a></li><br><br><br>
-          <li><a class="cat-but" href="#">Project Management <span >2000</span></a></li><br><br><br>
-          <li><a class="cat-but" href="#">Finance Management <span >800</span></a></li><br><br><br>
-          <li><a class="cat-but" href="#">Office &amp; Admin <span >7000</span></a></li><br><br><br>
+          <li><a class="cat-but" href="#">PHP Programming <span>5500</span></a></li><br><br><br>
+          <li><a class="cat-but" href="#">Project Management <span>2000</span></a></li><br><br><br>
+          <li><a class="cat-but" href="#">Finance Management <span>800</span></a></li><br><br><br>
+          <li><a class="cat-but" href="#">Office &amp; Admin <span>7000</span></a></li><br><br><br>
         </ul>
       </div>
     </div>
   </div>
   </section>
   </div>
-  <script src="myScript.js"></script>
 </body>
 
-<?php 
+<?php
 include('include/footer.php')
 ?>
