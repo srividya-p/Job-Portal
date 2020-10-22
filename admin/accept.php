@@ -18,12 +18,12 @@ Password: ".$password."<br><br> Please do not share these with anyone. <br> Rega
 Job-Portal Administrator";
 
 $email = new \SendGrid\Mail\Mail();
-$email -> setFrom("scs3.laptop@gmail.com", "Job-Portal Admin");
+$email -> setFrom("jobportal1000@gmail.com", "Job-Portal Admin");
 $email -> setSubject("Job Portal Verification Complete!");
 $email -> addTo($to_email, "");
 $email -> addContent("text/html", $content);
 
-$sendgrid = new \SendGrid("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");
+$sendgrid = new \SendGrid("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");
 
 try{
     $response = $sendgrid -> send($email);

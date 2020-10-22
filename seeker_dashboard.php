@@ -32,7 +32,7 @@
 		  }
 		}
 	</script>
-<div id='wrap' style="background-image: url('/Job-Portal/img/bg_4.jpeg');">
+<div id='wrap'>
     <br><br>
     <div class="topnav">
       <div class="topnav-left">

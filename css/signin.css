@@ -55,6 +55,12 @@ button:hover {
 .limiter {
   width: 100%;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background-image: url("/ip/img/company.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .container-login {
@@ -69,13 +75,13 @@ button:hover {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #0250c5;
+  /* background: #0250c5;
   background: -webkit-linear-gradient(bottom, #004e92 ,#000428);
   background: -o-linear-gradient(bottom, #004e92 ,#000428);
   background: -moz-linear-gradient(bottom, #004e92 ,#000428);
-  background: linear-gradient(bottom, #004e92 ,#000428);
+  background: linear-gradient(bottom, #004e92 ,#000428); */
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .container-login::before {
@@ -87,7 +93,6 @@ button:hover {
   height: 100%;
   top: 0;
   left: 0;
-  background-image: url('../img/background.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -98,6 +103,7 @@ button:hover {
   background: #fff;
   border-radius: 3px;
   overflow: hidden;
+  opacity: 1;
 }
 
 .p-l-50 {padding-left: 50px;}

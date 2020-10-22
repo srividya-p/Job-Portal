@@ -55,6 +55,10 @@ button:hover {
 .limiter {
   width: 100%;
   margin: 0 auto;
+  background-image: url("/ip/img/admin.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .container-login {
@@ -69,11 +73,11 @@ button:hover {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #0250c5;
+  /* background: #0250c5;
   background: -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
   background: -o-linear-gradient(bottom, #0250c5, #d43f8d);
   background: -moz-linear-gradient(bottom, #0250c5, #d43f8d);
-  background: linear-gradient(bottom, #0250c5, #d43f8d);
+  background: linear-gradient(bottom, #0250c5, #d43f8d); */
   position: relative;
   z-index: 1;
 }
@@ -87,10 +91,6 @@ button:hover {
   height: 100%;
   top: 0;
   left: 0;
-  background-image: url('../images/background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 .wrap-login {

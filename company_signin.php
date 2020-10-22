@@ -11,10 +11,25 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <link rel="stylesheet" type="text/css" href="css/signin.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
     <div class="limiter">
+        <br><br>
+        <div class="topnav">
+            <div class="topnav-left">
+                <a href="index.php" class="active">Job Portal</a>
+            </div>
+            <div class="topnav-right">
+                <a href="index.php">Home</a>
+                <a href="about.php">About</a>
+                <a href="blog.php">Blog</a>
+                <a href="contact.php">Contact</a>
+                <a href="company_signin.php" style="background-color: #1963E4; border-radius: 10px;">Post a Job</a>
+                <a href="seeker_signin.php" style="background-color: #19E491; border-radius: 10px;">Want a Job</a>
+            </div>
+        </div>
         <div class="container-login">
             <div class="wrap-login p-l-50 p-r-50 p-t-77 p-b-30">
                 <form class="login-form" id="provider_signin" method="POST" action="company_signin.php">
