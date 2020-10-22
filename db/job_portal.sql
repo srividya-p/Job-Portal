@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 19, 2020 at 06:35 AM
--- Server version: 8.0.21
--- PHP Version: 7.4.7
+-- Host: localhost
+-- Generation Time: Oct 22, 2020 at 05:59 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,23 +28,31 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin_login` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `admin_email` varchar(100) NOT NULL,
   `admin_pass` varchar(100) NOT NULL,
   `admin_username` varchar(100) NOT NULL,
   `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL,
-  `user_type` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `last_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin_login`
 --
 
-INSERT INTO `admin_login` (`id`, `admin_email`, `admin_pass`, `admin_username`, `first_name`, `last_name`, `user_type`) VALUES
-(1, 'scs1.laptop@gmail.com', '123456', 'bleh', 'Pika', 'foob', '1'),
-(2, 'scs2.laptop@gmail.com', '123456', 'selin', 'sara', 'varghese', '2'),
-(3, 'scs3.laptop@gmail.com', '123456', 'ania', 'soft-voice', 'guptaa', '2');
+INSERT INTO `admin_login` (`id`, `admin_email`, `admin_pass`, `admin_username`, `first_name`, `last_name`) VALUES
+(1, 'scs3.laptop@gmail.com', '123456', 'admin', 'Pika', 'foob');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `applicant`
+--
+
+CREATE TABLE `applicant` (
+  `id` int(11) NOT NULL,
+  `jo_post_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -53,18 +61,27 @@ INSERT INTO `admin_login` (`id`, `admin_email`, `admin_pass`, `admin_username`, 
 --
 
 CREATE TABLE `company` (
-  `company_id` int NOT NULL,
-  `company_name` varchar(100) NOT NULL,
-  `description` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `country` varchar(50) NOT NULL,
+  `stream` varchar(100) NOT NULL,
+  `website` varchar(200) NOT NULL,
+  `date` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `photo` varchar(200) NOT NULL,
+  `form_doc` varchar(200) NOT NULL,
+  `verified` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `company`
 --
 
-INSERT INTO `company` (`company_id`, `company_name`, `description`) VALUES
-(1, 'ABC', 'IT'),
-(9, 'XYZ', 'More I                                ');
+INSERT INTO `company` (`id`, `name`, `description`, `country`, `stream`, `website`, `date`, `email`, `phone`, `password`, `photo`, `form_doc`, `verified`) VALUES
+(32, 'clkmef', 'Company Description\r\n		            	', 'Bahamas', 'asa', 'cfkmc', '2018-01-10', 'scs2.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/Srividya .jpg', '/ip/companyFiles/formDocs/Srividya-Resume.pdf', 1);
 
 -- --------------------------------------------------------
 
@@ -73,25 +90,24 @@ INSERT INTO `company` (`company_id`, `company_name`, `description`) VALUES
 --
 
 CREATE TABLE `jobs` (
-  `job_id` int NOT NULL,
+  `job_id` int(11) NOT NULL,
   `creator_email` varchar(100) NOT NULL,
   `job_title` varchar(100) NOT NULL,
   `description` varchar(200) NOT NULL,
   `country` varchar(50) NOT NULL,
   `state` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jobs`
 --
 
 INSERT INTO `jobs` (`job_id`, `creator_email`, `job_title`, `description`, `country`, `state`, `city`) VALUES
-(1, 'scs2.laptop@gmail.com', 'Web Developer', 'Front end developer', 'India', 'Maharashtra', 'Pune'),
-(2, 'scs3.laptop@gmail.com', 'AI intern', 'ML and DL', 'India', 'Karnataka', 'Banglore'),
+(1, 'scs2.laptop@gmail.com', 'Web Developer', 'Front end developer', 'India', 'Rajasthan', 'Agucha'),
+(2, 'scs1.laptop@gmail.com', 'AI intern', 'ML and DL', 'India', 'Karnataka', 'Banglore'),
 (3, 'scs2.laptop@gmail.com', 'Node.js Developer', 'Node and Express', 'India', 'Maharashtra', 'Mumbai'),
-(4, 'scs2.laptop@gmail.com', 'Android Developer', 'Kotlin and Java', 'India', 'Tamil Nadu', 'Agaram'),
-(9, 'scs2.laptop@gmail.com', 'Android Developer', 'jsjsj', 'Bahrain', 'Muharraq', 'Al Muharraq');
+(4, 'scs2.laptop@gmail.com', 'Android Developer', 'Kotlin and Java', 'India', 'Tamil Nadu', 'Agaram');
 
 -- --------------------------------------------------------
 
@@ -100,13 +116,14 @@ INSERT INTO `jobs` (`job_id`, `creator_email`, `job_title`, `description`, `coun
 --
 
 CREATE TABLE `job_seeker` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `mobileno` varchar(10) NOT NULL,
   `address` varchar(255) DEFAULT NULL,
+  `country` varchar(100) NOT NULL,
   `city` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
   `dob` varchar(255) NOT NULL,
@@ -117,35 +134,15 @@ CREATE TABLE `job_seeker` (
   `cgpa` varchar(10) NOT NULL,
   `aboutme` varchar(255) DEFAULT NULL,
   `skills` varchar(255) DEFAULT NULL,
-  `resume` mediumblob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `resume` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `job_seeker`
 --
 
-INSERT INTO `job_seeker` (`id`, `fname`, `lname`, `email`, `password`, `mobileno`, `address`, `city`, `state`, `dob`, `age`, `qualification`, `stream`, `passingyear`, `cgpa`, `aboutme`, `skills`, `resume`) VALUES
-(1, 'Sara', 'Varghese', 'sara4varghese@gmail.com', 'ODA0MGZiNTRlMGQxODBiOThiZTlmYzFiNzQ2ODFlMGE=', '9892254482', 'b/604, hawamahal, soham gardens, manpada', 'Thane West', 'Maharashtra', '1996-12-15', '23', 'Btech', 'IT', '2019-11-01', '8.6', 'blah', 'blah', 0x3530313836315f657870375f4f4c41502e706466),
-(2, 'Srividya', 'Subramanian', 'zookafoob24@gmail.com', 'ZGQ0Njk0ZjNmY2Y4ZWUzY2YzNWI0Njc3YTc1YzY4NjE=', '8976467914', '', '', '', '1999-01-08', '21', 'Btech', 'IT', '2020-09-23', '10', '', '', 0x3530313836315f657870352e706466);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_type`
---
-
-CREATE TABLE `user_type` (
-  `id` int NOT NULL,
-  `type` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `user_type`
---
-
-INSERT INTO `user_type` (`id`, `type`) VALUES
-(1, 'Admin'),
-(2, 'Seeker');
+INSERT INTO `job_seeker` (`id`, `fname`, `lname`, `email`, `password`, `mobileno`, `address`, `country`, `city`, `state`, `dob`, `age`, `qualification`, `stream`, `passingyear`, `cgpa`, `aboutme`, `skills`, `resume`) VALUES
+(6, 'Srividya', 'Subramanian', 'srividya.subramanian77@gmail.com', 'MWRkZjFkNDBmYzBkOWZmNTIyMzQ3OTAxODkxODI1MTM=', '9326012248', 'Lake City Towers', 'Algeria', 'Saida', 'Saida', '1999-01-21', '21', 'B. A.', 'Science', '2020-10-22', '10', '', '', '/ip/seekerFiles/resumes/Recovery.pdf');
 
 --
 -- Indexes for dumped tables
@@ -158,10 +155,16 @@ ALTER TABLE `admin_login`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `applicant`
+--
+ALTER TABLE `applicant`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `company`
 --
 ALTER TABLE `company`
-  ADD PRIMARY KEY (`company_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `jobs`
@@ -183,25 +186,31 @@ ALTER TABLE `job_seeker`
 -- AUTO_INCREMENT for table `admin_login`
 --
 ALTER TABLE `admin_login`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `applicant`
+--
+ALTER TABLE `applicant`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `job_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `job_seeker`
 --
 ALTER TABLE `job_seeker`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

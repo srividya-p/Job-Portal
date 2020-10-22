@@ -2,6 +2,8 @@
 
 include("connection/db.php");
 require 'vendor/autoload.php';
+$fullPath = realpath(dirname(__FILE__));
+$reqPath = substr($fullPath,0,strlen($fullPath)-9);
 
 $del = $_GET['del'];
 
@@ -33,8 +35,8 @@ try{
     print $e -> getMessage();
 }
 
-unlink('/home/pika/php'.$photo);
-unlink('/home/pika/php'.$doc);
+unlink($reqPath.$photo);
+unlink($reqPath.$doc);
 
 $query = mysqli_query($conn, "delete from company where id=$del");
 
