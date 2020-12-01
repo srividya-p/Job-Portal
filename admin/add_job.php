@@ -60,6 +60,16 @@ include('include/sidebar.php');
             </div>
 
             <div class="form-group">
+                <label for="Openings">Enter Number of Openings</label>
+                <input type="number" id="openings" required name="openings" class="form-control" placeholder="Enter number of Openings">
+            </div>
+
+            <div class="form-group">
+                <label for="Openings">Enter Salary</label>
+                <input type="number" id="salary" required name="salary" class="form-control" placeholder="Enter Salary">
+            </div>
+
+            <div class="form-group">
                 <input name="submit" id="submit" type="submit" class="btn btn-success" placeholder="SAVE">
             </div>
         </form>
@@ -100,6 +110,8 @@ include('include/sidebar.php');
             var country = $('#countryId').val();
             var state = $('#stateId').val();
             var city = $('#cityId').val();
+            var salary = $('#salary').val();
+            var openings = $('#openings').val();
             
             if (jobTitle == "") {
                 alert('Please Enter a Job Title!')
@@ -119,6 +131,16 @@ include('include/sidebar.php');
             }
             if (city == "") {
                 alert('Please Select a City!')
+                return false
+            }
+
+            if (openings == 0) {
+                alert('Please enter Openings!')
+                return false
+            }
+
+            if (salary == 0) {
+                alert('Please enter Salary!')
                 return false
             }
             

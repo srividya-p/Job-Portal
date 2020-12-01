@@ -102,9 +102,10 @@ if (mysqli_num_rows($query)>0){
         <thead>
             <tr>
                 <th>#SR No.</th>
-                <th>Creator</th>
                 <th>Job Title</th>
                 <th>Description</th>
+                <th>Openings</th>
+                <th>Salary</th>
                 <th>Country</th>
                 <th>State</th>
                 <th>City</th>
@@ -119,9 +120,10 @@ if (mysqli_num_rows($query)>0){
             ?>
                 <tr>
                     <td><?php echo $row['job_id'] ?></td>
-                    <td><?php echo $row['creator_email'] ?></td>
                     <td><?php echo $row['job_title'] ?></td>
                     <td><?php echo $row['description'] ?></td>
+                    <td><?php echo $row['openings'] ?></td>
+                    <td><?php echo $row['salary'] ?></td>
                     <td><?php echo $row['country'] ?></td>
                     <td><?php echo $row['state'] ?></td>
                     <td><?php echo $row['city'] ?></td>
@@ -139,9 +141,10 @@ if (mysqli_num_rows($query)>0){
         <tfoot>
             <tr>
                 <th>#SR No.</th>
-                <th>Creator</th>
                 <th>Job Title</th>
                 <th>Description</th>
+                <th>Openings</th>
+                <th>Salary</th>
                 <th>Country</th>
                 <th>State</th>
                 <th>City</th>

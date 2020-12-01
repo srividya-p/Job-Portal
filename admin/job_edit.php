@@ -14,6 +14,8 @@ while ($row = mysqli_fetch_array($query)) {
     $country = $row['country'];
     $state = $row['state'];
     $city = $row['city'];
+    $salary = $row['salary'];
+    $openings = $row['openings'];
 }
 $code = array_search($country, $countrycodes);
 ?>
@@ -72,6 +74,16 @@ $code = array_search($country, $countrycodes);
             </div>
 
             <div class="form-group">
+                <label for="Openings">Enter Number of Openings</label>
+                <input type="number" id="openings" required name="openings" class="form-control" value="<?php echo $openings?>">
+            </div>
+
+            <div class="form-group">
+                <label for="Openings">Enter Salary</label>
+                <input type="number" id="salary" required name="salary" class="form-control" value="<?php echo $salary?>">
+            </div>
+
+            <div class="form-group">
                 <input name="submit" id="submit" type="submit" class="btn btn-success" placeholder="SAVE">
             </div>
         </form>
@@ -118,9 +130,11 @@ if (isset($_POST['submit'])) {
     $country = $_POST['country'];
     $state = $_POST['state'];
     $city = $_POST['city'];
+    $salary = $_POST['salary'];
+    $openings = $_POST['openings'];
 
     $query1 = mysqli_query($conn, "update jobs set job_title='$jobTitle', description='$desc', 
-    city='$city', country='$country', state='$state'
+    city='$city', country='$country', state='$state', salary='$salary', openings='$openings'
     where job_id=$id");
 
     if ($query) {

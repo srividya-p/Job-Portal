@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 22, 2020 at 05:59 AM
+-- Generation Time: Dec 01, 2020 at 08:15 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin_login` (
 --
 
 INSERT INTO `admin_login` (`id`, `admin_email`, `admin_pass`, `admin_username`, `first_name`, `last_name`) VALUES
-(1, 'scs3.laptop@gmail.com', '123456', 'admin', 'Pika', 'foob');
+(1, 'jobportal1000@gmail.com', 'jp@12345', 'admin', 'Pika', 'foob');
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`id`, `name`, `description`, `country`, `stream`, `website`, `date`, `email`, `phone`, `password`, `photo`, `form_doc`, `verified`) VALUES
-(32, 'clkmef', 'Company Description\r\n		            	', 'Bahamas', 'asa', 'cfkmc', '2018-01-10', 'scs2.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/Srividya .jpg', '/ip/companyFiles/formDocs/Srividya-Resume.pdf', 1);
+(40, 'Company1', 'Company Description\r\n		            	', '', 'asa', 'cfkmc', '2018-01-12', 'scs1.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/company1.jpg', '/ip/companyFiles/formDocs/UNICEF DR 1.0.pdf', 1);
 
 -- --------------------------------------------------------
 
@@ -96,18 +96,20 @@ CREATE TABLE `jobs` (
   `description` varchar(200) NOT NULL,
   `country` varchar(50) NOT NULL,
   `state` varchar(50) NOT NULL,
-  `city` varchar(50) NOT NULL
+  `city` varchar(50) NOT NULL,
+  `openings` int(200) NOT NULL,
+  `salary` bigint(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`job_id`, `creator_email`, `job_title`, `description`, `country`, `state`, `city`) VALUES
-(1, 'scs2.laptop@gmail.com', 'Web Developer', 'Front end developer', 'India', 'Rajasthan', 'Agucha'),
-(2, 'scs1.laptop@gmail.com', 'AI intern', 'ML and DL', 'India', 'Karnataka', 'Banglore'),
-(3, 'scs2.laptop@gmail.com', 'Node.js Developer', 'Node and Express', 'India', 'Maharashtra', 'Mumbai'),
-(4, 'scs2.laptop@gmail.com', 'Android Developer', 'Kotlin and Java', 'India', 'Tamil Nadu', 'Agaram');
+INSERT INTO `jobs` (`job_id`, `creator_email`, `job_title`, `description`, `country`, `state`, `city`, `openings`, `salary`) VALUES
+(1, 'scs2.laptop@gmail.com', 'Web Developer', 'Front end developer', 'India', 'Rajasthan', 'Agucha', 0, 0),
+(2, 'scs1.laptop@gmail.com', 'AI intern', 'ML and DL', 'India', 'Karnataka', 'Banglore', 0, 0),
+(3, 'scs2.laptop@gmail.com', 'Node.js Developer', 'Node and Express', 'India', 'Maharashtra', 'Mumbai', 0, 0),
+(4, 'scs2.laptop@gmail.com', 'Android Developer', 'Kotlin and Java', 'India', 'Tamil Nadu', 'Agaram', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -198,13 +200,13 @@ ALTER TABLE `applicant`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `job_seeker`

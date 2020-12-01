@@ -32,7 +32,7 @@ include('include/header.php');
         </div>
 
         <div>
-          <select name="country" class="countries form-control" id="countryId" required>
+          <select name="country" class="countries form-control" id="countryId">
             <option value="">Select Country</option>
           </select>
         </div>
@@ -178,8 +178,8 @@ include('include/header.php');
       }
     });
   </script>
-  <script src="//geodata.solutions/includes/countrystatecity.js"></script>
 </body>
+<script src="//geodata.solutions/includes/countrystatecity.js"></script>
 
 </html>
 
