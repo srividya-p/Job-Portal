@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 01, 2020 at 08:15 AM
+-- Generation Time: Dec 02, 2020 at 01:07 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -50,9 +50,17 @@ INSERT INTO `admin_login` (`id`, `admin_email`, `admin_pass`, `admin_username`, 
 --
 
 CREATE TABLE `applicant` (
-  `id` int(11) NOT NULL,
-  `jo_post_id` int(11) NOT NULL
+  `job_post_id` int(11) NOT NULL,
+  `user_id` int(100) NOT NULL,
+  `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `applicant`
+--
+
+INSERT INTO `applicant` (`job_post_id`, `user_id`, `status`) VALUES
+(13, 6, 'applied');
 
 -- --------------------------------------------------------
 
@@ -81,7 +89,9 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`id`, `name`, `description`, `country`, `stream`, `website`, `date`, `email`, `phone`, `password`, `photo`, `form_doc`, `verified`) VALUES
-(40, 'Company1', 'Company Description\r\n		            	', '', 'asa', 'cfkmc', '2018-01-12', 'scs1.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/company1.jpg', '/ip/companyFiles/formDocs/UNICEF DR 1.0.pdf', 1);
+(43, 'Company1', 'Company Description\r\n		            	', '', 'cfkc', 'cfkmc', '2018-01-20', 'scs1.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/company1.jpg', '/ip/companyFiles/formDocs/company1.pdf', 1),
+(45, 'Company2', 'Company Description\r\n		            	', '', 'asa', 'cfkmc', '2018-01-21', 'scs2.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/company2.jpg', '/ip/companyFiles/formDocs/company2.pdf', 1),
+(46, 'Company3', 'Company Description\r\n		            	', 'Azerbaijan', 'cfkc', 'cfkmc', '2018-01-12', 'scs3.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/company3.png', '/ip/companyFiles/formDocs/company3.pdf', 0);
 
 -- --------------------------------------------------------
 
@@ -106,10 +116,11 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`job_id`, `creator_email`, `job_title`, `description`, `country`, `state`, `city`, `openings`, `salary`) VALUES
-(1, 'scs2.laptop@gmail.com', 'Web Developer', 'Front end developer', 'India', 'Rajasthan', 'Agucha', 0, 0),
-(2, 'scs1.laptop@gmail.com', 'AI intern', 'ML and DL', 'India', 'Karnataka', 'Banglore', 0, 0),
-(3, 'scs2.laptop@gmail.com', 'Node.js Developer', 'Node and Express', 'India', 'Maharashtra', 'Mumbai', 0, 0),
-(4, 'scs2.laptop@gmail.com', 'Android Developer', 'Kotlin and Java', 'India', 'Tamil Nadu', 'Agaram', 0, 0);
+(13, 'scs1.laptop@gmail.com', 'Android Developer', 'abc', 'Bangladesh', 'Sarankhola', 'Khulna', 2, 2000),
+(14, 'scs1.laptop@gmail.com', 'Node Dev', 'abc', 'Bahamas', 'Grand Cay', 'Grand Cay', 1, 4000),
+(15, 'scs2.laptop@gmail.com', 'AI/ML', 'abc', 'Azerbaijan', 'Istisu', 'Kalbajar', 1, 10000),
+(16, 'scs2.laptop@gmail.com', 'Web Dev', 'abc', 'Argentina', 'Garza', 'Santiago del Estero', 2, 1000),
+(17, 'scs2.laptop@gmail.com', 'Developer', 'abc', 'Belgium', 'Brussels', 'Brussels Capital', 1, 12345);
 
 -- --------------------------------------------------------
 
@@ -144,7 +155,7 @@ CREATE TABLE `job_seeker` (
 --
 
 INSERT INTO `job_seeker` (`id`, `fname`, `lname`, `email`, `password`, `mobileno`, `address`, `country`, `city`, `state`, `dob`, `age`, `qualification`, `stream`, `passingyear`, `cgpa`, `aboutme`, `skills`, `resume`) VALUES
-(6, 'Srividya', 'Subramanian', 'srividya.subramanian77@gmail.com', 'MWRkZjFkNDBmYzBkOWZmNTIyMzQ3OTAxODkxODI1MTM=', '9326012248', 'Lake City Towers', 'Algeria', 'Saida', 'Saida', '1999-01-21', '21', 'B. A.', 'Science', '2020-10-22', '10', '', '', '/ip/seekerFiles/resumes/Recovery.pdf');
+(6, 'Srividya', 'Subramanian', 'srividya.ssa@gmail.com', 'MWRkZjFkNDBmYzBkOWZmNTIyMzQ3OTAxODkxODI1MTM=', '9326012248', 'Lake City Towers', 'Algeria', 'Saida', 'Saida', '1999-01-21', '21', 'B. A.', 'Science', '2020-10-22', '10', '', '', '/ip/seekerFiles/resumes/Recovery.pdf');
 
 --
 -- Indexes for dumped tables
@@ -160,7 +171,8 @@ ALTER TABLE `admin_login`
 -- Indexes for table `applicant`
 --
 ALTER TABLE `applicant`
-  ADD PRIMARY KEY (`id`);
+  ADD KEY `job_post_id` (`job_post_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `company`
@@ -191,28 +203,33 @@ ALTER TABLE `admin_login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `applicant`
---
-ALTER TABLE `applicant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `job_seeker`
 --
 ALTER TABLE `job_seeker`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `applicant`
+--
+ALTER TABLE `applicant`
+  ADD CONSTRAINT `job_post_id` FOREIGN KEY (`job_post_id`) REFERENCES `jobs` (`job_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `job_seeker` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
