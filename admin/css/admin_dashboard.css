@@ -2,97 +2,256 @@
 	font-family: Raleway-Black;
 	src: url('../fonts/raleway/Raleway-Black.ttf'); 
 }
-html, body{
-    font-size: .875rem;
-    font-family: Raelway-Black;
-  }
-  
-  .feather {
-    width: 16px;
-    height: 16px;
-    vertical-align: text-bottom;
-  }
-  
-  /*
-   * Sidebar
-   */
-  
-  .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100; /* Behind the navbar */
-    padding: 0;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-  }
-  
-  .sidebar-sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 48px; /* Height of navbar */
-    height: calc(100vh - 48px);
-    padding-top: .5rem;
+
+@font-face {
+	font-family: Raleway-SemiBold;
+	src: url('../fonts/raleway/Raleway-SemiBold.ttf'); 
+}
+
+#example{
+  table-layout: fixed;
+  width: 100%;
+  padding-top: 20px;
+  border: none;
+}
+
+.table-div{
+  width: 83%;
+}
+
+
+  body{
+    background-color: #ffffff ;
+    font-size: 17px;
+    font-family: Raleway-SemiBold;
     overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  }
+
+  .topnav {
+    background-color: #111;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    
   }
   
-  .sidebar .nav-link {
-    font-weight: 500;
-    color: #333;
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    color: #818181;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
   }
   
-  .sidebar .nav-link .feather {
-    margin-right: 4px;
-    color: #999;
+  .mainbody{
+    margin-top: 55px;
+  }
+  /* The sidebar menu */
+  .sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 250px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    text-align: left;
   }
   
-  .sidebar .nav-link.active {
-    color: #007bff;
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #818181;
+    display: block;
   }
   
-  .sidebar .nav-link:hover .feather,
-  .sidebar .nav-link.active .feather {
-    color: inherit;
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    background-color: #FAFBFB;
+    color: black;
+  }
+  /*currently active tab*/
+  .sidenav .active{
+    background-color: #FAFBFB;
+    color: black;
+  }
+  /* Style page content */
+  .main {
+    margin-left: 250px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+    width: 100%;
+    background-color: #FAFBFB;
   }
   
-  .sidebar-heading {
-    font-size: .75rem;
-    text-transform: uppercase;
+  
+  /* Float four columns side by side */
+  .row .column {
+    float: left;
+    width: 50%;
+    padding: 0 10px;
   }
   
-  /*
-   * Navbar
-   */
+  /* Custom Colored Panels */
   
-  .navbar-brand {
-    padding-top: .75rem;
-    padding-bottom: .75rem;
-    font-size: 1rem;
-    background-color: rgba(0, 0, 0, .25);
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+  .huge {
+      font-size: 40px;
+  }
+  .pull-left{
+      color: white;
   }
   
-  .navbar .form-control {
-    padding: .75rem 1rem;
-    border-width: 0;
-    border-radius: 0;
+  .panel-yellow > a {
+      color: #f0ad4e;
   }
   
-  .form-control-dark {
-    color: #fff;
-    background-color: rgba(255, 255, 255, .1);
-    border-color: rgba(255, 255, 255, .1);
+  .panel-yellow > a:hover {
+      color: #df8a13;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between;
   }
   
-  .form-control-dark:focus {
-    border-color: transparent;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+  
+  
+  .card {
+    /* Add shadows to create the "card" effect */
+    height: 125px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: 30px;
+    width: 50%;
   }
   
-  /*
-   * Utilities
-   */
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 16px 16px 0 rgba(0,0,0,0.4);
+  }
   
-  .border-top { border-top: 1px solid #e5e5e5; }
-  .border-bottom { border-bottom: 1px solid #e5e5e5; }
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+  }
+  #curve_chart{
+    padding-left: 10%; 
+    width: 900px; 
+    height: 500px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  td {
+    font-size: 14px;
+    text-align: center;
+    padding: 16px;
+  }
+
+  th{
+    font-size: 16px;
+    text-align: center;
+    padding: 16px;
+    background-color: black;
+    color: white;
+  }
+
+  #curve_chart{
+    padding-left: 10%; width: 900px; height: 500px;
+  }
+  /*-----responsive side baar-----*/
+  @media screen and (max-width: 700px) {
+    .sidenav {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidenav a {float: center;}
+    div.content {margin-left: 0;}
+    .grid-container {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: space-between;
+    }
+    .main {
+      margin-left: 50px; 
+    }
+    #curve_chart{ 
+    width: 100%;
+    padding-left: 0; 
+    }
+  
+  }
+
+  .success {
+    color: green;
+  }
+
+  .danger{
+    color: red;
+  }
+
+  .form-group{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+
+  select {
+    width: 100%;
+    padding: 10px 15px;
+    border: solid gray 1px;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+  }
+
+  input {
+    border: 2px solid gray;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    width: 100%;
+    height: 35px;
+    font-family: Raleway-SemiBold;
+  }
+
+  .submit-button{
+    width: 100px;
+    background-color: lightgreen;
+    font-family: Raleway-Black;
+  }
+  
+  a{
+    text-decoration: none;
+    color: blue;
+  }
+
+  .info-button{
+    width: 150px;
+    padding: 10px;
+    background-color: rgb(32, 144, 178);
+    font-family: Raleway-SemiBold;
+    border: solid gray 1px;
+    color: white;
+    border-radius: 4px;
+  }

@@ -25,71 +25,64 @@ $code = array_search($country, $countrycodes);
         font-size: 18px;
     }
 </style>
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="job.php">Job Posts</a></li>
-            <li class="breadcrumb-item"><a href="job_edit.php">Edit Job</a></li>
-        </ol>
-    </nav>
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Edit Job</h1><br>
-        <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-            </div>
-        </div>
+<p><a href="dashboard.php" >Dashboard</a>&nbsp;/&nbsp;<a href="job.php">Job Posts</a>&nbsp;/&nbsp;<a href="#">Edit Job Post</a></p>
+
+<div class="row">
+    <div class="col">
+        <h1 class="page-header" style="font-size: 25px;">
+            Edit Job Post Details
+        </h1>
     </div>
-    <div style="width: 60%; margin-left:20%; background-color:beige;">
-        <form action="" style="margin:3%; padding:3%;" name="job_form" id="job_form" action="" method="POST">
+</div>
+<div style="width: 50%; margin-left:15%; background-color:beige; border-radius:10px;">
+    <form action="" style="margin:3%; padding:3%;" name="job_form" id="job_form" action="" method="POST">
         <div class="form-group">
-                <label for="Job Title">Enter Job Title</label>
-                <input type="text" value="<?php echo $job_title ?>" name="jobTitle" class="form-control" placeholder="Enter Job Title">
-            </div>
+            <label for="Job Title">Enter Job Title</label><br><br>
+            <input type="text" value="<?php echo $job_title ?>" name="jobTitle"  placeholder="Enter Job Title">
+        </div>
 
-            <div class="form-group">
-                <label for="Description">Enter Description</label>
-                <textarea name="desc" id="desc" cols="30" rows="10" class="form-control" id="desc"><?php echo $description ?></textarea>
-            </div>
+        <div class="form-group">
+            <label for="Description">Enter Description</label><br><br>
+            <textarea name="desc" id="desc" cols="30" rows="10"  id="desc"><?php echo $description ?></textarea>
+        </div>
 
-            <div class="form-group">
-                <label for="Country">Enter Country</label>
-                <select name="country" class="countries form-control presel-<?php echo $code?>" id="countryId">
-                    <option>Select Country</option>
-                </select>
-            </div>
+        <div class="form-group">
+            <label for="Country">Enter Country</label><br><br>
+            <select name="country" class="countries presel-<?php echo $code ?>" id="countryId">
+                <option>Select Country</option>
+            </select>
+        </div>
 
-            <div class="form-group">
-                <label for="State">Enter State</label>
-                <select name="state"  class="states form-control" id="stateId">
-                    <option>Select State</option>
-                </select>
-            </div>
+        <div class="form-group">
+            <label for="State">Enter State</label><br><br>
+            <select name="state" class="states" id="stateId">
+                <option>Select State</option>
+            </select>
+        </div>
 
-            <div class="form-group">
-                <label for="City">Enter City</label>
-                <select name="city" class="cities form-control" id="cityId">
-                    <option>Select City</option>
-                </select>
-            </div>
+        <div class="form-group">
+            <label for="City">Enter City</label><br><br>
+            <select name="city" class="cities" id="cityId">
+                <option>Select City</option>
+            </select>
+        </div>
 
-            <div class="form-group">
-                <label for="Openings">Enter Number of Openings</label>
-                <input type="number" id="openings" required name="openings" class="form-control" value="<?php echo $openings?>">
-            </div>
+        <div class="form-group">
+            <label for="Openings">Enter Number of Openings</label><br><br>
+            <input type="number" id="openings" required name="openings" value="<?php echo $openings ?>">
+        </div>
 
-            <div class="form-group">
-                <label for="Openings">Enter Salary</label>
-                <input type="number" id="salary" required name="salary" class="form-control" value="<?php echo $salary?>">
-            </div>
+        <div class="form-group">
+            <label for="Openings">Enter Salary</label><br><br>
+            <input type="number" id="salary" required name="salary" value="<?php echo $salary ?>">
+        </div>
 
-            <div class="form-group">
-                <input name="submit" id="submit" type="submit" class="btn btn-success" placeholder="SAVE">
-            </div>
-        </form>
-        <div id='msg'></div>
-    </div>
-</main>
+        <div class="form-group">
+            <input name="submit" id="submit" type="submit" class="submit-button" value="UPDATE">
+        </div>
+    </form>
+</div>
+</div>
 </div>
 </div>
 

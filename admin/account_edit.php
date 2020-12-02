@@ -23,52 +23,46 @@ while ($row = mysqli_fetch_array($query)) {
         font-size: 18px;
     }
 </style>
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="admin_dashboard.php">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="admin_account.php">Admin Accounts</a></li>
-            <li class="breadcrumb-item"><a href="account_edit.php">Edit Account</a></li>
-        </ol>
-    </nav>
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Edit Account</h1><br>
-        <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-            </div>
-        </div>
+<p><a href="dashboard.php" >Dashboard</a>&nbsp;/&nbsp;<a href="admin_account.php">Admin Accounts</a>&nbsp;/&nbsp;<a href="#">Edit Admin Account</a></p>
+
+<div class="row">
+    <div class="col">
+        <h1 class="page-header" style="font-size: 25px;">
+            Edit Admin Account
+        </h1>
     </div>
-    <div style="width: 60%; margin-left:20%; background-color:beige;">
+</div>
+    <div style="width: 50%; margin-left:15%; background-color:beige; border-radius:10px;">
         <form action="" style="margin:3%; padding:3%;" name="admin_form" id="admin_form" action="" method="POST">
             <div class="form-group">
-                <label for="Email">Enter Seeker Email</label>
-                <input type="email" name="email" value="<?php echo $email ?>" class="form-control" placeholder="Enter Email">
+                <label for="Email">Enter Admin Email</label><br><br>
+                <input type="email" name="email" value="<?php echo $email ?>" placeholder="Enter Email">
             </div>
 
             <div class="form-group">
-                <label for="Username">Enter Username</label>
-                <input type="text" name="username" value="<?php echo $username ?>" class="form-control" placeholder="Enter Username">
+                <label for="Username">Enter Username</label><br><br>
+                <input type="text" name="username" value="<?php echo $username ?>"  placeholder="Enter Username">
             </div>
 
             <div class="form-group">
-                <label for="First Name">Enter First Name</label>
-                <input type="text" name="first_name" value="<?php echo $first_name ?>" class="form-control" placeholder="Enter First Name">
+                <label for="First Name">Enter First Name</label><br><br>
+                <input type="text" name="first_name" value="<?php echo $first_name ?>"  placeholder="Enter First Name">
             </div>
 
             <div class="form-group">
-                <label for="Last Name">Enter Last Name</label>
-                <input type="text" name="last_name" value="<?php echo $last_name ?>" class="form-control" placeholder="Enter Last Name">
+                <label for="Last Name">Enter Last Name</label><br><br>
+                <input type="text" name="last_name" value="<?php echo $last_name ?>" placeholder="Enter Last Name">
             </div>
 
             <div class="form-group">
-                <label for="Password">Enter Password</label>
-                <input type="text" name="password" value="<?php echo $password ?>" class="form-control" placeholder="Enter Password">
+                <label for="Password">Enter Password</label><br><br>
+                <input type="text" name="password" value="<?php echo $password ?>" placeholder="Enter Password">
             </div>
 
             <input type="hidden" name="id" id="id" value="<?php echo $_GET['id'] ?>">
 
             <div class="form-group">
-                <input name="submit" id="submit" type="submit" class="btn btn-success" value="Save">
+                <input name="submit" id="submit" type="submit" class="submit-button" value="SAVE">
             </div>
         </form>
     </div>

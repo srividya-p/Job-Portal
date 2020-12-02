@@ -4,55 +4,54 @@ include("connection/db.php");
 include('include/header.php');
 include('include/sidebar.php');
 
+$company = $_SESSION['email'];
+
+$conn = mysqli_connect('localhost', 'root', '', 'job_portal');
+$query = mysqli_query($conn, "select j.job_title, j.job_id, s.id, s.fname, s.lname, s.resume,
+ s.mobileno from job_seeker s, jobs j, applicant a where a.user_id=s.id and
+a.job_post_id=j.job_id and a.status='applied' and j.creator_email='$company'");
+
 ?>
 
-<p><a href="dashboard.php" >Dashboard</a>&nbsp;/&nbsp;<a href="seeker.php">Job Seekers</a></p>
+<html>
+
+<p><a href="dashboard.php">Dashboard</a>&nbsp;/&nbsp;<a href="applicants.php">Applicants</a></p>
 
 <div class="row">
     <div class="col">
-        <h1 class="page-header" style="font-size: 25px;">
-            Job Seekers
-        </h1>
+        <p style="font-size: 25px;">
+            Applicants
+        </p>
     </div>
 </div>
-
 <div class="table-div">
-    <table id="example" class="display" style="width:100%">
+    <table id="example" class="row-border hover">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Mobile Number</th>
-                <th>Country</th>
-                <th>Age</th>
-                <th>Qualification</th>
-                <th>CGPA</th>
+                <th>Job Title</th>
+                <th>Applicant</th>
+                <th>Phone</th>
                 <th>Resume</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            include('connection/db.php');
-            $query = mysqli_query($conn, "select * from job_seeker");
             while ($row = mysqli_fetch_array($query)) {
             ?>
                 <tr>
-                    <td><?php echo $row['fname'] ?> <?php echo $row['lname'] ?></td>
-                    <td style="font-size:10px;"><?php echo $row['email'] ?></td>
+                    <td><?php echo $row['job_title'] ?></td>
+                    <td><?php echo $row['fname'] . ' ';
+                        echo $row['lname'] ?></td>
                     <td><?php echo $row['mobileno'] ?></td>
-                    <td><?php echo $row['country'] ?></td>
-                    <td><?php echo $row['age'] ?></td>
-                    <td><?php echo $row['qualification'] ?></td>
-                    <td><?php echo $row['cgpa'] ?></td>
                     <td>
                         <button data-feather="eye" onclick="showDoc('<?php echo $row['resume'] ?>')"></button>
                     </td>
                     <td>
                         <div class="row">
                             <div class="btn-group">
-                                <a href="seeker_edit.php?id=<?php echo $row['id'] ?>" ><span data-feather="edit-2" class="success"></span></a>
-                                <a href="seeker_delete.php?del=<?php echo $row['id'] ?>"><span data-feather="trash-2" class="danger"></span></a>
+                                <a href="js_selected.php?u-id=<?php echo $row['id'] ?>&j-id=<?php echo $row['job_id'] ?>" ><span data-feather="check" class="success"></span></a>
+                                <a href="js_rejected.php?u-id=<?php echo $row['id'] ?>&j-id=<?php echo $row['job_id'] ?>" ><span data-feather="x" class="danger"></span></a>
                             </div>
                         </div>
                     </td>
@@ -61,13 +60,9 @@ include('include/sidebar.php');
         </tbody>
         <tfoot>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Mobile Number</th>
-                <th>Country</th>
-                <th>Age</th>
-                <th>Qualification</th>
-                <th>CGPA</th>
+                <th>Job Title</th>
+                <th>Applicant</th>
+                <th>Phone</th>
                 <th>Resume</th>
                 <th>Action</th>
             </tr>
@@ -78,20 +73,12 @@ include('include/sidebar.php');
 </div>
 </div>
 
-<script>
-    function showDoc(pth) {
-        window.open(pth, '_blank');
-    }
-</script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script>
     window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
 </script>
-<!-- <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script> -->
 
-<!-- Icons -->
 <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 <script>
     feather.replace()
@@ -107,6 +94,10 @@ include('include/sidebar.php');
     });
 </script>
 
-</body>
+<script>
+    function showDoc(pth) {
+        window.open(pth, '_blank');
+    }
+</script>
 
 </html>

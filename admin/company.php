@@ -6,34 +6,28 @@ include('include/sidebar.php');
 
 ?>
 
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="company.php">Companies</a></li>
-        </ol>
-    </nav>
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Companies</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-            </div>
-        </div>
+<p><a href="dashboard.php" >Dashboard</a>&nbsp;/&nbsp;<a href="company.php">Companies</a></p>
+<div class="row">
+    <div class="col">
+        <h1 class="page-header" style="font-size: 25px;">
+            Registered Companies
+        </h1>
     </div>
-    <table id="example" class="display" style="width:100%">
+</div>
+<div class="table-div">
+    <table id="example">
         <thead>
             <tr>
                 <th>Company Name</th>
-                <th>Description</th>
+                <th>Desc</th>
                 <th>Country</th>
                 <th>Stream</th>
                 <th>Website</th>
                 <th>Date of Formation</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Password</th>
                 <th>Profile Picture</th>
-                <th>Formation Documents</th>
+                <th>Formation Docs</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -50,9 +44,8 @@ include('include/sidebar.php');
                     <td><?php echo $row['stream'] ?></td>
                     <td><?php echo $row['website'] ?></td>
                     <td><?php echo $row['date'] ?></td>
-                    <td><?php echo $row['email'] ?></td>
+                    <td style="font-size:10px;"><?php echo $row['email'] ?></td>
                     <td><?php echo $row['phone'] ?></td>
-                    <td><?php echo $row['password'] ?></td>
                     <td>
                         <button data-feather="eye" onclick="showPic('<?php echo $row['photo'] ?>')"></button>
                     </td>
@@ -62,8 +55,8 @@ include('include/sidebar.php');
                     <td>
                         <div class="row">
                             <div class="btn-group">
-                                <a href="company_edit.php?id=<?php echo $row['id'] ?>" class="btn btn-success glyphicon glyphicon-pencil"><span class=""></span></a>
-                                <a href="company_delete.php?del=<?php echo $row['id'] ?>" class="btn btn-danger glyphicon glyphicon-trash"><span class=""></span></a>
+                                <a href="company_edit.php?id=<?php echo $row['id'] ?>"><span data-feather="edit-2" class="success"></span></a>
+                                <a href="company_delete.php?del=<?php echo $row['id'] ?>"><span data-feather="trash-2" class="danger"></span></a>
                             </div>
                         </div>
                     </td>
@@ -80,14 +73,14 @@ include('include/sidebar.php');
                 <th>Date of Formation</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Password</th>
                 <th>Profile Picture</th>
                 <th>Formation Documents</th>
                 <th>Action</th>
             </tr>
         </tfoot>
     </table>
-</main>
+</div>
+</div>
 </div>
 </div>
 
