@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <html>
 
 <head>
@@ -50,45 +46,24 @@ session_start();
         </div>
         <div class="container-login">
             <div class="wrap-login p-l-50 p-r-50 p-t-77 p-b-30">
-                <form class="login-form" id="admin_login" method="POST" action="seeker_signin.php">
+                <form class="login-form" id="admin_login" method="POST" action="seeker_forgot.php">
                     <span class="login-form-title p-b-55">
-                        Job Seeker Sign In
+                        Forgot Password
                     </span>
 
                     <div class="wrap-input m-b-16">
-                        <input class="input" type="text" name="email" placeholder="Email" autocomplete="no">
+                        <input class="input" type="text" name="email" placeholder="Enter Email" autocomplete="no">
                         <span class="focus-input"></span>
                         <span class="symbol-input">
                             <span class="lnr lnr-envelope"></span>
                         </span>
                     </div>
 
-                    <div class="wrap-input m-b-16">
-                        <input class="input" type="password" name="pass" placeholder="Password">
-                        <span class="focus-input"></span>
-                        <span class="symbol-input">
-                            <span class="lnr lnr-lock"></span>
-                        </span>
-                    </div>
-
                     <div class="container-login-form-btn p-t-25">
-                        <input class="login-form-btn" id="submit" name="submit" value="Sign In" type="submit">
+                        <input class="login-form-btn" id="submit" name="submit" value="Submit" type="submit">
                         <div class="wrap-input m-b-16">
                         </div>
-                        OR
-                        <div class="wrap-input m-b-16">
-                        </div>
-                        <a href="seeker_signup.php" class="login-form-btn" style="text-decoration: none">Create an Account</a>
                     </div>
-
-                    <div class="wrap-input m-b-16">
-                    </div>
-
-                    <div class="wrap-input m-b-16">
-                    </div>
-
-                    <a href="seeker_forgot.php" style="text-decoration: none; color: blue; margin-left: 110px;">Forgot Password?</a>
-
                 </form>
             </div>
         </div>
@@ -99,23 +74,40 @@ session_start();
 
 <?php
 include('connection/db.php');
+require 'vendor/autoload.php';
 
 if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $pass = $_POST['pass'];
+    
+    $forgot_email = $_POST['email'];
 
-    $query = mysqli_query($conn, "select email, password from job_seeker where email='$email' 
-    and password='$pass'");
-    //var_dump($query);
+    $query = mysqli_query($conn, "select password from job_seeker where email='$forgot_email'");
+
     if ($query) {
         if (mysqli_num_rows($query) > 0) {
-            $_SESSION['email'] = $email;
-            header('location:seeker_dashboard.php');
+
+            $row = mysqli_fetch_array($query);
+            $content="We recieved a request for accessing your password. Your password is:<br>".$row[0]."<br>Do not share it with anyone. 
+            You may update your password in the profile section.<br> Regards, <br> Job-Portal Administrator";
+            $email = new \SendGrid\Mail\Mail();
+            $email->setFrom("jobportal1000@gmail.com", "Job-Portal Admin");
+            $email->setSubject("Request for resetting password");
+            $email->addTo($forgot_email, "");
+            $email->addContent("text/html", $content);
+
+            $sendgrid = new \SendGrid("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");
+
+            try {
+                $response = $sendgrid->send($email);
+                echo "<script>alert('Please check your email for your password!')</script>";
+                header('location: s_forgot_notice.php');
+            } catch (Exception $e) {
+                print $e->getMessage();
+            }
         } else {
-            echo "<script>alert('Invalid Credentials! Please try again.')</script>";
+            echo "<script>alert('Entered email is not valid!')</script>";
         }
     } else {
-        echo "<script>alert('Error')</script>";
+        echo "<script>alert('Error!')</script>";
     }
 }
 ?>

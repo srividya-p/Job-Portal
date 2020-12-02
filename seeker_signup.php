@@ -26,7 +26,6 @@ if (isset($_POST['submit'])) {
   $resume = '/ip/seekerFiles/resumes/'.$_FILES['resume']['name'];
 
   //Encrypt Password
-  $password = base64_encode(strrev(md5($password)));
   move_uploaded_file($_FILES['resume']['tmp_name'], $targetResume);
 
 

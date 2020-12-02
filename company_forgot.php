@@ -29,9 +29,9 @@ session_start();
         </div>
         <div class="container-login">
             <div class="wrap-login p-l-50 p-r-50 p-t-77 p-b-30">
-                <form class="login-form" id="provider_signin" method="POST" action="company_signin.php">
+                <form class="login-form" id="provider_signin" method="POST" action="company_forgot.php">
                     <span class="login-form-title p-b-55">
-                        Company Sign In
+                        Forgot Password
                     </span>
 
                     <div class="wrap-input m-b-16">
@@ -42,32 +42,12 @@ session_start();
                         </span>
                     </div>
 
-                    <div class="wrap-input m-b-16">
-                        <input class="input" type="password" id="pass" name="pass" placeholder="Password">
-                        <span class="focus-input"></span>
-                        <span class="symbol-input">
-                            <span class="lnr lnr-lock"></span>
-                        </span>
-                    </div>
-
                     <div class="container-login-form-btn p-t-25">
                         <input class="login-form-btn" id="submit" name="submit" placeholder="Sign In" type="submit">
                         <div class="wrap-input m-b-16">
                         </div>
-                        OR
-                        <div class="wrap-input m-b-16">
                         </div>
-                        <a href="company_register.php" class="login-form-btn" style="text-decoration: none">Get Registered</a>
-                    </div>
-                    <div class="wrap-input m-b-16">
-                    </div>
-
-                    <div class="wrap-input m-b-16">
-                    </div>
-
-                    <a href="company_forgot.php" style="text-decoration: none; color: blue; margin-left: 110px;">Forgot Password?</a>
-
-                </form>
+                    </form>
             </div>
         </div>
     </div>
@@ -76,24 +56,40 @@ session_start();
 </html>
 <?php
 include('connection/db.php');
+require 'vendor/autoload.php';
 
 if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $pass = $_POST['pass'];
+    
+    $forgot_email = $_POST['email'];
 
-    $query = mysqli_query($conn, "select * from company where email='$email' 
-    and password='$pass'");
-    //var_dump($query);
+    $query = mysqli_query($conn, "select password from company where email='$forgot_email'");
+
     if ($query) {
         if (mysqli_num_rows($query) > 0) {
-            $_SESSION['email'] = $email;
-            //echo $_SESSION['email'];
-            header('location:admin/dashboard.php');
+
+            $row = mysqli_fetch_array($query);
+            $content="We recieved a request for accessing your password. Your password is:<br>".$row[0]."<br>Do not share it with anyone. 
+            You may update your password in the profile section.<br> Regards, <br> Job-Portal Administrator";
+            $email = new \SendGrid\Mail\Mail();
+            $email->setFrom("jobportal1000@gmail.com", "Job-Portal Admin");
+            $email->setSubject("Request for resetting password");
+            $email->addTo($forgot_email, "");
+            $email->addContent("text/html", $content);
+
+            $sendgrid = new \SendGrid("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");
+
+            try {
+                $response = $sendgrid->send($email);
+                echo "<script>alert('Please check your email for your password!')</script>";
+                header('location: c_forgot_notice.php');
+            } catch (Exception $e) {
+                print $e->getMessage();
+            }
         } else {
-            echo "<script>alert('Invalid Credentials! Please try again.')</script>";
+            echo "<script>alert('Entered email is not valid!')</script>";
         }
     } else {
-        echo "<script>alert('Error')</script>";
+        echo "<script>alert('Error!')</script>";
     }
 }
 ?>
