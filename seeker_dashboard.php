@@ -1,11 +1,3 @@
-<?php
-session_start();
-if ($_SESSION['email'] == true) {
-} else {
-    header('location:seeker_signin.php');
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,53 +14,22 @@ if ($_SESSION['email'] == true) {
 </head>
 
 <header>
-  
-<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-  var myDropdown = document.getElementById("myDropdown");
-    if (myDropdown.classList.contains('show')) {
-      myDropdown.classList.remove('show');
-    }
-  }
-}
-</script>
-  
   <div id='wrap'>
     <br><br>
     <div class="topnav">
       <div class="topnav-left">
         <a href="index.php" class="active">Job Portal</a>
       </div>
-      <div class="topnav-right" style="overflow: hidden;">
-        <!--a href="#" style="background-color: #1963E4; border-radius: 10px;">My Applications</a-->
-        <?php
-        $email=$_SESSION['email'];
-        include("connection/db.php");
-        $query=mysqli_query($conn,"select id,email,fname,profile_img from job_seeker where email='$email';");
-        $row = mysqli_fetch_array($query)
-        ?>
-        <div class="dropdown">
-        <a class="dropbtn" onclick="myFunction()"><img src="<?php echo $row['profile_img']; ?>" onerror="this.onerror=null; this.src='img/profile.png'" class="Profile" style="border-radius: 50%; height: 40px; width: 40px; overflow-y: visible; z-index: 1; "><?php echo $row['fname']; ?></a>
-        <div class="dropdown-content" id="myDropdown">
-          <a href="seeker_update1.php?id=<?php echo $row['id']?>">Edit Profile</a><br>
-          <a href="#">Logout</a>
-        </div>
-        </div>
-        <!--div class="profile_dropdown">
-          <a class="dropbtn" style="background-color: #19E491; border-radius: 10px;"><i class="fa fa-user"></i></a>
-          <div id="myDropdown" class="dropdown-content" >
-            <a href="#">Update profile</a>
-            <a href="#">Log out</a>
+      <div class="topnav-right">
+        <a href="#" style="background-color: #1963E4; border-radius: 10px;">My Applications</a>
+        <div class="profile_dropdown">
+          <a onclick="myFunction()" class="dropbtn" style="background-color: #19E491; border-radius: 10px;"><i class="fa fa-user"></i></a>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
           </div>
-        </div-->
+        </div>
       </div>
     </div>
 
@@ -113,7 +74,27 @@ window.onclick = function(e) {
     </div>
   </div>
 
-  
+  <script type="text/javascript">
+    /* When the user clicks on the button,
+		toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
 </body>
 
 <?php
