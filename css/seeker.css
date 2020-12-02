@@ -85,3 +85,27 @@
   border-radius: 8px;
   margin: 10px;
 }
+
+#posts {
+  margin-left: 250px;
+  margin-top: 10px;
+}
+
+.post-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  float: left;
+  width: 20%;
+  height: 20%;
+  margin-right: 100px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #C6CEFD;
+  border-radius: 4px;
+}
+
+#image{
+  width: 100%;
+  height: 150px;
+}
+

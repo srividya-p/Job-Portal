@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <html>
 
 <head>
@@ -40,9 +44,6 @@
             </div>
             <div class="topnav-right">
                 <a href="index.php" style="color: white;">Home</a>
-                <a href="about.php" style="color: white;">About</a>
-                <a href="blog.php" style="color: white;">Blog</a>
-                <a href="contact.php" style="color: white;">Contact</a>
                 <a href="company_signin.php" style="color: white;background-color: #1963E4; border-radius: 10px;">Post a Job</a>
                 <a href="seeker_signin.php" style="color: white; background-color: #19E491; border-radius: 10px;">Want a Job</a>
             </div>

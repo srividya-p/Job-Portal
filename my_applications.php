@@ -74,25 +74,23 @@ if ($_SESSION['email'] == true) {
 
 <body id="bod">
   <div id="posts">
-    <h1>Job Posts for you</h1>
+    <h1>My Applications</h1>
     <?php
     include("connection/db.php");
     $conn = mysqli_connect('localhost', 'root', '', 'job_portal');
-    $query = mysqli_query($conn, "select * from jobs");
+    
     $user_email = $_SESSION['email'];
     $query2 = mysqli_query($conn, "select id from job_seeker where email='$user_email'");
     $user_id = mysqli_fetch_array($query2);
+
+    $query = mysqli_query($conn, "select j.job_title, j.creator_email, j.description, j.openings, j.salary,
+    a.status from job_seeker s, jobs j, applicant a 
+    where a.user_id=s.id and a.job_post_id=j.job_id");
 
     while ($row = mysqli_fetch_array($query)) {
       $creator = $row['creator_email'];
       $query1 = mysqli_query($conn, "select photo from company where email='$creator'");
       $path = mysqli_fetch_array($query1);
-      $job_id = $row['job_id'];
-      $query3 = mysqli_query($conn, "select * from applicant where user_id='$user_id[0]' and job_post_id='$job_id'");
-
-      if ($query3) {
-        if (mysqli_num_rows($query3) > 0) {
-        } else{
     ?>
       <div class="post-card">
         <img id="image" src="<?php echo $path[0] ?>">
@@ -101,9 +99,16 @@ if ($_SESSION['email'] == true) {
           <p><?php echo $row['description'] ?></p>
           <p>Openings: <?php echo $row['openings'] ?></p>
           <p>Salary: <?php echo $row['salary'] ?></p>
-          <a class="button" onclick="alert('Apply for this post with your current resume?')" href="apply.php?job-id=<?php echo $job_id ?>&user-id=<?php echo $user_id[0] ?>">APPLY</a> <br><br>
+          <p>Status:</p>
+          <?php if ($row['status']=='selected'){?>
+            <p style="color:green">Selected</p>
+          <?php } elseif($row['status']=='applied') { ?>
+            <p style="color:blue">Applied</p>
+          <?php } else {?>
+            <p style="color:gray">Not Selected</p>
+          <?php } ?>
         </div>
       </div>
-    <?php  }}} ?>
+    <?php  } ?>
   </div>
 </body>

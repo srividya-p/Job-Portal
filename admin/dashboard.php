@@ -2,209 +2,167 @@
 include('include/header.php');
 include('include/sidebar.php');
 ?>
+<br>
+<div class="row">
+  <div class="col">
+    <h1 class="page-header" style="font-size: 25px;"><i data-feather="home"></i>
+      Dashboard
+    </h1>
+  </div>
+</div>
 
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-  <!-- <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="admin_dashboard.php">Dashboard</a></li>
-      <li class="breadcrumb-item"><a href="job_seeker.php">Job Seekers</a></li>
-    </ol>
-  </nav> -->
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-    <h1 class="h2">Dashboard</h1>
-    <div class="btn-toolbar mb-2 mb-md-0">
-      <div class="btn-group mr-2">
-        <button class="btn btn-sm btn-outline-secondary">Share</button>
-        <button class="btn btn-sm btn-outline-secondary">Export</button>
+<!--row-->
+<div class="row">
+  <div class="grid-container">
+
+    <div class="card" style="background-color: #2A75D5;">
+      <div class="container">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="grid-container">
+              <div>
+                <i class="fa fa-user fa-5x"></i>
+              </div>
+              <div style="text-align: right">
+                <div class="huge">26</div>
+                <div>Registered Seekers</div>
+              </div>
+            </div>
+          </div>
+          <a href="seeker.php">
+            <div style="background-color: white; ">
+              <span class="pull-left">View Details</span>
+            </div>
+          </a>
+        </div>
       </div>
-      <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-        <span data-feather="calendar"></span>
-        This week
-      </button>
+    </div>
+
+    <div class="card" style="background-color: #6EF140 ;">
+      <div class="container">
+        <div class="panel panel-green">
+          <div class="panel-heading">
+            <div class="grid-container">
+              <div class="col-xs-3">
+                <i class="fa fa-cube fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right" style="text-align: right;">
+                <div class="huge">12</div>
+                <div>Registered Companies</div>
+              </div>
+            </div>
+          </div>
+          <a href="company.php">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="grid-container">
+
+      <div class="card" style="background-color: #F4ED5A;">
+        <div class="container">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <div class="grid-container">
+                <div>
+                  <i class="fa fa-newspaper-o fa-5x"></i>
+                </div>
+                <div style="text-align: right">
+                  <div class="huge">30</div>
+                  <div>Open Job Posts</div>
+                </div>
+              </div>
+            </div>
+            <a href="job.php">
+              <footer style="vertical-align: bottom;">
+                <span class="pull-left">View Details</span>
+                <div class="clearfix"></div>
+              </footer>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="background-color: #F16040">
+        <div class="container">
+          <div class="panel panel-green">
+            <div class="panel-heading">
+              <div class="grid-container">
+                <div class="col-xs-3">
+                  <i class="fa fa-tasks fa-5x"></i>
+                </div>
+                <div class="col-xs-9 text-right" style="text-align: right;">
+                  <div class="huge">12</div>
+                  <div>Unverified Companies</div>
+                </div>
+              </div>
+            </div>
+            <a href="uv_company.php">
+              <div class="panel-footer">
+                <span class="pull-left">View Details</span>
+                <div class="clearfix"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h1 style="font-size: 25px; padding-top: 25px;"><i data-feather="bar-chart-2"></i> Graphical statistics
+      </h1>
+    </div>
+    <div class="row">
+      <div id="curve_chart" style="width: 1000px; height: 600px;"></div>
     </div>
   </div>
 
-  <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
-
-  <h2>Section title</h2>
-  <div class="table-responsive">
-    <table class="table table-striped table-sm">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Header</th>
-          <th>Header</th>
-          <th>Header</th>
-          <th>Header</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1,001</td>
-          <td>Lorem</td>
-          <td>ipsum</td>
-          <td>dolor</td>
-          <td>sit</td>
-        </tr>
-        <tr>
-          <td>1,002</td>
-          <td>amet</td>
-          <td>consectetur</td>
-          <td>adipiscing</td>
-          <td>elit</td>
-        </tr>
-        <tr>
-          <td>1,003</td>
-          <td>Integer</td>
-          <td>nec</td>
-          <td>odio</td>
-          <td>Praesent</td>
-        </tr>
-        <tr>
-          <td>1,003</td>
-          <td>libero</td>
-          <td>Sed</td>
-          <td>cursus</td>
-          <td>ante</td>
-        </tr>
-        <tr>
-          <td>1,004</td>
-          <td>dapibus</td>
-          <td>diam</td>
-          <td>Sed</td>
-          <td>nisi</td>
-        </tr>
-        <tr>
-          <td>1,005</td>
-          <td>Nulla</td>
-          <td>quis</td>
-          <td>sem</td>
-          <td>at</td>
-        </tr>
-        <tr>
-          <td>1,006</td>
-          <td>nibh</td>
-          <td>elementum</td>
-          <td>imperdiet</td>
-          <td>Duis</td>
-        </tr>
-        <tr>
-          <td>1,007</td>
-          <td>sagittis</td>
-          <td>ipsum</td>
-          <td>Praesent</td>
-          <td>mauris</td>
-        </tr>
-        <tr>
-          <td>1,008</td>
-          <td>Fusce</td>
-          <td>nec</td>
-          <td>tellus</td>
-          <td>sed</td>
-        </tr>
-        <tr>
-          <td>1,009</td>
-          <td>augue</td>
-          <td>semper</td>
-          <td>porta</td>
-          <td>Mauris</td>
-        </tr>
-        <tr>
-          <td>1,010</td>
-          <td>massa</td>
-          <td>Vestibulum</td>
-          <td>lacinia</td>
-          <td>arcu</td>
-        </tr>
-        <tr>
-          <td>1,011</td>
-          <td>eget</td>
-          <td>nulla</td>
-          <td>Class</td>
-          <td>aptent</td>
-        </tr>
-        <tr>
-          <td>1,012</td>
-          <td>taciti</td>
-          <td>sociosqu</td>
-          <td>ad</td>
-          <td>litora</td>
-        </tr>
-        <tr>
-          <td>1,013</td>
-          <td>torquent</td>
-          <td>per</td>
-          <td>conubia</td>
-          <td>nostra</td>
-        </tr>
-        <tr>
-          <td>1,014</td>
-          <td>per</td>
-          <td>inceptos</td>
-          <td>himenaeos</td>
-          <td>Curabitur</td>
-        </tr>
-        <tr>
-          <td>1,015</td>
-          <td>sodales</td>
-          <td>ligula</td>
-          <td>in</td>
-          <td>libero</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</main>
 </div>
 </div>
 
-<!-- Bootstrap core JavaScript
-    ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>
-  window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+
+
+<script type="text/javascript">
+  google.charts.load('current', {
+    'packages': ['corechart']
+  });
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Year', 'Registered Seekers', 'Hired'],
+      ['2004', 1000, 400],
+      ['2005', 1170, 460],
+      ['2006', 1120, 520],
+      ['2007', 1730, 1500]
+    ]); 
+
+    var options = {
+      title: 'Recruitment Rate',
+      curveType: 'function',
+      legend: {
+        position: 'bottom'
+      }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+    chart.draw(data, options);
+  }
 </script>
-<script src="../../assets/js/vendor/popper.min.js"></script>
-<script src="../../dist/js/bootstrap.min.js"></script>
 
-<!-- Icons -->
+
 <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 <script>
   feather.replace()
 </script>
 
-<!-- Graphs -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-<script>
-  var ctx = document.getElementById("myChart");
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      datasets: [{
-        data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
-        borderWidth: 4,
-        pointBackgroundColor: '#007bff'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: false
-          }
-        }]
-      },
-      legend: {
-        display: false,
-      }
-    }
-  });
-</script>
 </body>
 
 </html>

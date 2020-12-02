@@ -30,84 +30,77 @@ $code = array_search($country, $countrycodes);
         font-size: 18px;
     }
 </style>
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="company.php">Companies</a></li>
-            <li class="breadcrumb-item"><a href="company_edit.php">Edit Company</a></li>
-        </ol>
-    </nav>
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Edit Company</h1><br>
-        <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-            </div>
+<p><a href="dashboard.php" >Dashboard</a>&nbsp;/&nbsp;<a href="company.php">Companies</a>&nbsp;/&nbsp;<a href="#">Edit Company</a></p>
+
+<div class="row">
+    <div class="col">
+        <h1 class="page-header" style="font-size: 25px;">
+            Edit Company Details
+        </h1>
+    </div>
+</div>
+<div style="width: 50%; margin-left:15%; background-color:beige; border-radius:10px;">
+    <form action="" style="margin:3%; padding:3%;" name="company_form" id="company_form" action="" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="Company Name">Enter Company Name</label><br><br>
+            <input type="text" name="cname" value="<?php echo $cname ?>" class="form-control" placeholder="Enter Company Name">
         </div>
-    </div>
-    <div style="width: 60%; margin-left:20%; background-color:beige;">
-        <form action="" style="margin:3%; padding:3%;" name="company_form" id="company_form" action="" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="Company Name">Enter Company Name</label>
-                <input type="text" name="cname" value="<?php echo $cname ?>" class="form-control" placeholder="Enter Company Name">
-            </div>
 
-            <div class="form-group">
-                <label for="Description">Enter Description</label>
-                <textarea name="desc" cols="30" rows="10"  class="form-control" id="desc"><?php echo $desc ?>
+        <div class="form-group">
+            <label for="Description">Enter Description</label><br><br>
+            <textarea name="desc" cols="30" rows="10" class="form-control" id="desc"><?php echo $desc ?>
                 </textarea>
-            </div>
+        </div>
 
-            <div class="form-group">
-                <label for="Country">Enter Country</label>
-                <select name="country" class="countries form-control presel-<?php echo $code?>" id="countryId">
-                    <option>Select Country</option>
-                </select>
-            </div>
+        <div class="form-group">
+            <label for="Country">Enter Country</label><br><br>
+            <select name="country" class="countries form-control presel-<?php echo $code ?>" id="countryId">
+                <option>Select Country</option>
+            </select>
+        </div>
 
-            <div class="form-group">
-                <label for="Stream">Enter Company Stream</label>
-                <input type="text" name="stream" value="<?php echo $stream ?>" class="form-control" placeholder="Enter Stream">
-            </div>
-            
-            <div class="form-group">
-                <label for="Website">Enter Company Website</label>
-                <input type="text" name="website" value="<?php echo $website ?>" class="form-control" placeholder="Enter Website">
-            </div>
+        <div class="form-group">
+            <label for="Stream">Enter Company Stream</label><br><br>
+            <input type="text" name="stream" value="<?php echo $stream ?>" class="form-control" placeholder="Enter Stream">
+        </div>
 
-            <div class="form-group">
-                <label for="Date">Enter Date of Formation</label>
-                <input type="text" name="date" value="<?php echo $date ?>" class="form-control" placeholder="Enter Date">
-            </div>
+        <div class="form-group">
+            <label for="Website">Enter Company Website</label><br><br>
+            <input type="text" name="website" value="<?php echo $website ?>" class="form-control" placeholder="Enter Website">
+        </div>
 
-            <div class="form-group">
-                <label for="Email">Enter Company Email</label>
-                <input type="text" name="email" value="<?php echo $email ?>" class="form-control" placeholder="Enter Email">
-            </div>
+        <div class="form-group">
+            <label for="Date">Enter Date of Formation</label><br><br>
+            <input type="text" name="date" value="<?php echo $date ?>" class="form-control" placeholder="Enter Date">
+        </div>
 
-            <div class="form-group">
-                <label for="Phone">Enter Company Phone</label>
-                <input type="text" name="phone" value="<?php echo $phone ?>" class="form-control" placeholder="Enter Phone">
-            </div>
+        <div class="form-group">
+            <label for="Email">Enter Company Email</label><br><br>
+            <input type="text" name="email" value="<?php echo $email ?>" class="form-control" placeholder="Enter Email">
+        </div>
 
-            <div class="form-group">
-                <label for="Password">Enter Password</label>
-                <input type="text" name="password" value="<?php echo $password ?>" class="form-control" placeholder="Enter Password">
-            </div>
+        <div class="form-group">
+            <label for="Phone">Enter Company Phone</label><br><br>
+            <input type="text" name="phone" value="<?php echo $phone ?>" class="form-control" placeholder="Enter Phone">
+        </div>
 
-            <div class="form-group">
-                <label for="Photo">Upload New Photo</label>
-                <input type="file" name="photo" class="form-control" placeholder="Enter Password">
-                <p>Current File: <?php echo $photo ?></p>
-            </div>
+        <div class="form-group">
+            <label for="Password">Enter Password</label><br><br>
+            <input type="text" name="password" value="<?php echo $password ?>" class="form-control" placeholder="Enter Password">
+        </div>
 
-            <div class="form-group">
-                <input name="submit" id="submit" type="submit" class="btn btn-success" placeholder="SAVE">
-            </div>
-        </form>
-        <div id='msg'></div>
-    </div>
-</main>
+        <div class="form-group">
+            <label for="Photo">Upload New Photo</label><br><br>
+            <input type="file" name="photo" class="form-control" placeholder="Enter Password">
+            <p>Current File: <?php echo $photo ?></p>
+        </div>
+
+        <div class="form-group">
+            <input name="submit" id="submit" type="submit" class="submit-button" value="UPDATE">
+        </div>
+    </form>
+</div>
+</div>
 </div>
 </div>
 

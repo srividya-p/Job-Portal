@@ -5,35 +5,28 @@ include('include/header.php');
 include('include/sidebar.php');
 
 ?>
-
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="uv_company.php">Unverified Companies</a></li>
-        </ol>
-    </nav>
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Unverified Companies</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-            </div>
-        </div>
+<p><a href="dashboard.php" >Dashboard</a>&nbsp;/&nbsp;<a href="uv_company.php">Unverified Companies</a></p>
+<div class="row">
+    <div class="col">
+        <h1 class="page-header" style="font-size: 25px;">
+            Unverified Companies
+        </h1>
     </div>
-    <table id="example" class="display" style="width:100%">
+</div>
+<div class="table-div">
+    <table id="example">
         <thead>
             <tr>
                 <th>Company Name</th>
-                <th>Description</th>
+                <th>Desc</th>
                 <th>Country</th>
                 <th>Stream</th>
                 <th>Website</th>
                 <th>Date of Formation</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Password</th>
                 <th>Profile Picture</th>
-                <th>Formation Documents</th>
+                <th>Formation Docs</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -50,9 +43,8 @@ include('include/sidebar.php');
                     <td><?php echo $row['stream'] ?></td>
                     <td><?php echo $row['website'] ?></td>
                     <td><?php echo $row['date'] ?></td>
-                    <td><?php echo $row['email'] ?></td>
+                    <td style="font-size:10px;" ><?php echo $row['email'] ?></td>
                     <td><?php echo $row['phone'] ?></td>
-                    <td><?php echo $row['password'] ?></td>
                     <td>
                         <button data-feather="eye" onclick="showPic('<?php echo $row['photo'] ?>')"></button>
                     </td>
@@ -60,12 +52,12 @@ include('include/sidebar.php');
                         <button data-feather="eye" onclick="showDoc('<?php echo $row['form_doc'] ?>')"></button>
                     </td>
                     <td>
-                    <div class="row">
-                        <div class="btn-group">
-                            <a href="accept.php?id=<?php echo $row['id'] ?>" class="btn btn-success glyphicon glyphicon-ok"><span class=""></span></a>
-                            <a href="reject.php?del=<?php echo $row['id'] ?>" class="btn btn-danger glyphicon glyphicon-remove"><span class=""></span></a>
+                        <div class="row">
+                            <div class="btn-group">
+                                <a href="accept.php?id=<?php echo $row['id'] ?>"><span class="success" data-feather="check"></span></a>
+                                <a href="reject.php?del=<?php echo $row['id'] ?>"><span class="danger" data-feather="x"></span></a>
+                            </div>
                         </div>
-                    </div>
                     </td>
                 </tr>
             <?php } ?>
@@ -80,14 +72,14 @@ include('include/sidebar.php');
                 <th>Date of Formation</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Password</th>
                 <th>Profile Picture</th>
                 <th>Formation Documents</th>
                 <th>Action</th>
             </tr>
         </tfoot>
     </table>
-</main>
+</div>
+</div>
 </div>
 </div>
 
@@ -100,15 +92,6 @@ include('include/sidebar.php');
         window.open(pth, '_blank');
     }
 </script>
-
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>
-    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
-</script>
-<!-- <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script> -->
 
 <!-- Icons -->
 <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
