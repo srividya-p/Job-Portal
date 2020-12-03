@@ -64,8 +64,8 @@ if (mysqli_num_rows($query) > 0) {
                                     </a>
 
                                     <a class="nav-link" href="selected_applicants.php">
-                                        <span data-feather="users"></span>
-                                        Accepted
+                                        <span data-feather="user-check"></span>
+                                        Selected
                                     </a>
 
                                     <a class="nav-link" href="#">

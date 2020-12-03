@@ -21,14 +21,14 @@
 
 
   body{
-    background-color: #ffffff ;
+    background-color:  #ffffff; ;
     font-size: 17px;
     font-family: Raleway-SemiBold;
     overflow-x: hidden;
   }
 
   .topnav {
-    background-color: #111;
+    background-color: rgba(49, 47, 47, 0.938);
     overflow: hidden;
     left: 0;
     top: 0;
@@ -41,11 +41,16 @@
   /* Style the links inside the navigation bar */
   .topnav a {
     float: right;
-    color: #818181;
+    color:  rgba(255, 255, 255, 0.822);;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
+  }
+
+  .topnav a:hover {
+    background-color: #ffffff;
+    color: black;
   }
   
   .mainbody{
@@ -60,27 +65,33 @@
     background-color: #111; /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
     text-align: left;
+    background: #312450;
   }
   
-  /* The navigation menu links */
+  /*The navigation menu links*/
   .sidenav a {
     padding: 16px;
     text-decoration: none;
-    font-size: 17px;
-    color: #818181;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.822);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     display: block;
+    transition: all ease-out 300ms;
   }
   
   /* When you mouse over the navigation links, change their color */
   .sidenav a:hover {
-    background-color: #FAFBFB;
+    background-color:  rgba(165, 240, 243, 0.705);;;
     color: black;
   }
   /*currently active tab*/
   .sidenav .active{
-    background-color: #FAFBFB;
-    color: black;
+    color: white;
   }
+
+  
+
   /* Style page content */
   .main {
     margin-left: 250px; /* Same as the width of the sidebar */
@@ -103,7 +114,7 @@
       font-size: 40px;
   }
   .pull-left{
-      color: white;
+      color: black;
   }
   
   .panel-yellow > a {
@@ -157,13 +168,14 @@
     font-size: 14px;
     text-align: center;
     padding: 16px;
+    background-color:  rgba(165, 240, 243, 0.705);;
   }
 
   th{
     font-size: 16px;
     text-align: center;
     padding: 16px;
-    background-color: black;
+    background-color: rgba(49, 47, 47, 0.938);
     color: white;
   }
 
@@ -243,13 +255,13 @@
   
   a{
     text-decoration: none;
-    color: blue;
+    color: rgb(69, 29, 202);
   }
 
   .info-button{
     width: 150px;
     padding: 10px;
-    background-color: rgb(32, 144, 178);
+    background-color: rgb(32, 100, 178);
     font-family: Raleway-SemiBold;
     border: solid gray 1px;
     color: white;

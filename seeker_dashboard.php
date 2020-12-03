@@ -51,7 +51,7 @@ if ($_SESSION['email'] == true) {
     </div>
 
     <div id='main'>
-      <br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br>
       <p id='p1'>We have 850,000 great job offers you deserve!</p>
       <h1 id="dream">Your Dream</h1>
       <h1 id="wait">Job is waiting</h1>
@@ -59,13 +59,13 @@ if ($_SESSION['email'] == true) {
     <br>
 
     <div class="search" id="main1">
-      <!-- search bar -->
       <div class="search_text" id="searchjum" style="text-align: left; padding-left: 27% ">
-        <h1 style="font-size: 35px;">Search for Jobs</h1>
+        <h1 style="font-size: 30px;">Search for Jobs</h1>
 
         <form class="form-inline" id="homesearch">
-          <input type="text" class="form-control" size="50" placeholder="Enter your search keyword" name="keyword" id="keyword">
-          <button type="button" onclick="search()" class="btn " style="background-color: #1963E4; border-radius: 10px; padding: 10px;"><span class="glyphicon glyphicon-search"></span> Search</button>
+          <input type="text" class="form-control" size="50" placeholder="Enter Job Title" name="keyword" id="keyword" autocomplete="nppe"> <br><br>
+          <button type="button" onclick="search()" class="btn " style="background-color: #1963E4; border-radius: 10px; padding: 8px; margin-left: 160px"><span class="fa fa-search"></span> Search</button>&emsp;
+          <button type="button" onclick="reset_page()" class="btn " style="background-color: #90ee90; border-radius: 10px; padding: 9px;"><span class="fa fa-repeat"></span> Reset</button>
         </form>
       </div>
     </div>
@@ -75,6 +75,7 @@ if ($_SESSION['email'] == true) {
 <body id="bod">
   <div id="posts">
     <h1>Job Posts for you</h1>
+    <img id="not-found" src="img/not-found.jpg" width="650px" height="500px" style="margin-left: 200px; display:none">
     <?php
     include("connection/db.php");
     $conn = mysqli_connect('localhost', 'root', '', 'job_portal');
@@ -92,18 +93,48 @@ if ($_SESSION['email'] == true) {
 
       if ($query3) {
         if (mysqli_num_rows($query3) > 0) {
-        } else{
+        } else {
     ?>
-      <div class="post-card">
-        <img id="image" src="<?php echo $path[0] ?>">
-        <div class="container">
-          <h4><b><?php echo $row['job_title'] ?></b></h4>
-          <p><?php echo $row['description'] ?></p>
-          <p>Openings: <?php echo $row['openings'] ?></p>
-          <p>Salary: <?php echo $row['salary'] ?></p>
-          <a class="button" onclick="alert('Apply for this post with your current resume?')" href="apply.php?job-id=<?php echo $job_id ?>&user-id=<?php echo $user_id[0] ?>">APPLY</a> <br><br>
-        </div>
-      </div>
-    <?php  }}} ?>
+          <div class="post-card">
+            <img id="image" src="<?php echo $path[0] ?>">
+            <div class="container">
+              <h4 class="job-title"><b><?php echo $row['job_title'] ?></b></h4>
+              <p><?php echo $row['description'] ?></p>
+              <p>Openings: <?php echo $row['openings'] ?></p>
+              <p>Salary: <?php echo $row['salary'] ?></p>
+              <a class="button" onclick="alert('Apply for this post with your current resume?')" href="apply.php?job-id=<?php echo $job_id ?>&user-id=<?php echo $user_id[0] ?>">APPLY</a> <br><br>
+            </div>
+          </div>
+    <?php  }
+      }
+    } ?>
   </div>
 </body>
+
+<script>
+  function search() {
+    let input = document.getElementById('keyword').value
+    input = input.toLowerCase()
+    let job_titles = document.getElementsByClassName('job-title');
+    let postcards = document.getElementsByClassName('post-card');
+
+    let count = 0;
+    for (i = 0; i < job_titles.length; i++) {
+      if (!job_titles[i].innerHTML.toLowerCase().includes(input)) {
+        postcards[i].style.display = "none";
+        count += 1
+      } else {
+        postcards[i].style.display = "block";
+      }
+    }
+
+    if (count == postcards.length) {
+      document.getElementById('not-found').style.display = 'block';
+    }
+  }
+
+  function reset_page() {
+    location.reload();
+    console.log('reload');
+  }
+</script>

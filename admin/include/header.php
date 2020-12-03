@@ -41,5 +41,5 @@ if ($_SESSION['email'] == true) {
     <section>
         <div class="topnav">
             <a href="#" style="float: left; width: 220px;"><?php echo $_SESSION['email'] ?></a>
-            <a href="logout.php" style="font-size:20px"><i data-feather="power"></i>&nbsp;Sign Out</a>
+            <a href="logout.php" style="font-size:20px"><i data-feather="power"></i>&nbsp;SIGN OUT</a>
         </div>
