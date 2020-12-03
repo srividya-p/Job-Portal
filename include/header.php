@@ -19,7 +19,7 @@
         <a href="index.php">Home</a>
         <a href="index.php#aboutus">About</a>
         <a href="index.php#blog">Blog</a>
-        <a href="index.php#content">Contact</a> 
+        <a href="index.php#contact">Contact</a> 
         <a href = "company_signin.php" style = "background-color: #1963E4; border-radius: 10px;" >Post a Job</a> 
         <a href = "seeker_signin.php" style="background-color: #19E491; border-radius: 10px;" >Want a Job</a>
       </div>

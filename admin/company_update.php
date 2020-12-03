@@ -9,6 +9,7 @@ email='{$_SESSION['email']}'");
 
 
 while ($row = mysqli_fetch_array($query)) {
+    $id=$row['id'];
     $cname = $row['name'];
     $desc = $row['description'];
     $country = $row['country'];
@@ -18,7 +19,7 @@ while ($row = mysqli_fetch_array($query)) {
     $email = $row['email'];
     $phone = $row['phone'];
     $password = $row['password'];
-    $photo = $row['photo'];
+    $photo_prev = $row['photo'];
 }
 
 
@@ -42,7 +43,7 @@ $code = array_search($country, $countrycodes);
     </div>
 </div>
 <div style="width: 50%; margin-left:15%; background-color:beige; border-radius:10px;">
-    <img src="<?php echo $photo;?>" onerror="this.onerror=null; this.src='/ip/companyFiles/profilePics/profile.png'" style="align-content: center; height: 150px; width: 150px; margin-left: 40%; margin-top: 30px; border-radius: 50%; ">
+    <img src="<?php echo $photo_prev;?>" onerror="this.onerror=null; this.src='/ip/companyFiles/profilePics/profile.png'" style="align-content: center; height: 150px; width: 150px; margin-left: 40%; margin-top: 30px; border-radius: 50%; ">
     <form action="" style="margin:3%; padding:3%;" name="company_form" id="company_form" action="" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="Company Name">Enter Company Name</label><br><br>
@@ -95,7 +96,7 @@ $code = array_search($country, $countrycodes);
         <div class="form-group">
             <label for="Photo">Upload New Photo</label><br><br>
             <input type="file" name="photo" class="form-control" placeholder="Enter Password">
-            <p>Current File: <?php echo $photo ?></p>
+            <p>Current File: <?php echo $photo_prev ?></p>
         </div>
 
         <div class="form-group">
@@ -149,10 +150,11 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $password = $_POST['password'];
     $photo = basename($_FILES['photo']['name']);
+    $photo1 = substr($photo_prev, 0, 29).$photo;
 
     $query1 = mysqli_query($conn, "update company set name='$cname', description='$desc',
     country='$country', stream='$stream', website='$website', date='$date', email='$email',
-    phone='$phone', password='$password', photo='$photo' where id=$id");
+    phone='$phone', password='$password', photo='$photo1' where id=$id");
 
     if ($query) {
         echo "<script>alert('Record updated successfully!')</script>";

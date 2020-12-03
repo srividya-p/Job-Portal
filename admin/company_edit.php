@@ -18,7 +18,7 @@ while ($row = mysqli_fetch_array($query)) {
     $email = $row['email'];
     $phone = $row['phone'];
     $password = $row['password'];
-    $photo = $row['photo'];
+    $photo_prev = $row['photo'];
 }
 
 $code = array_search($country, $countrycodes);
@@ -92,7 +92,7 @@ $code = array_search($country, $countrycodes);
         <div class="form-group">
             <label for="Photo">Upload New Photo</label><br><br>
             <input type="file" name="photo" class="form-control" placeholder="Enter Password">
-            <p>Current File: <?php echo $photo ?></p>
+            <p>Current File: <?php echo $photo_prev ?></p>
         </div>
 
         <div class="form-group">
@@ -146,10 +146,11 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $password = $_POST['password'];
     $photo = basename($_FILES['photo']['name']);
+    $photo1 = substr($photo_prev, 0, 29).$photo;
 
     $query1 = mysqli_query($conn, "update company set name='$cname', description='$desc',
     country='$country', stream='$stream', website='$website', date='$date', email='$email',
-    phone='$phone', password='$password', photo='$photo' where id=$id");
+    phone='$phone', password='$password', photo='$photo1' where id=$id");
 
     if ($query) {
         echo "<script>alert('Record updated successfully!')</script>";

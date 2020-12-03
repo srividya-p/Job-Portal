@@ -29,7 +29,7 @@
               <span class="text">+91-9326012248</span>
             </div>
             <div class="email">
-              <a href="https://gmail.com"><span class="fas fa-envelope"></span></a>
+              <a id="contact" href="https://gmail.com"><span class="fas fa-envelope"></span></a>
               <span class="text">jobportal1000@gmail.com</span>
             </div>
           </div>

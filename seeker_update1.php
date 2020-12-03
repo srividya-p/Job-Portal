@@ -75,7 +75,7 @@ $code = array_search($country, $countrycodes);
 <body class="limiter">
         <div class="topnav">
             <div class="topnav-left">
-                <a href="index.php" style="color: white;" class="active"
+                <a href="seeker_dashboard.php" style="color: white;" class="active"
                 >Job Portal</a>
             </div>
             <div class="navbar">

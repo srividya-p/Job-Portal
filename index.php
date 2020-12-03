@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
         <img src="img/lock.png" alt="Avatar">
         <div class="container">
           <div id="info-head"><b>Create Account</b></div><br>
-          <p>Lorem ipsum dolor sit amet, a arcu justo eget, placerat suspendisse ornare accumsan et fringilla consectetuer</p>
+          <p>Create an account and provide all basic details which are required for Job Applications.</p>
         </div>
       </div>
       
@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
         <img src="img/resume.png" alt="Avatar">
         <div class="container">
           <div id="info-head"><b>Submit Resume</b></div><br>
-          <p>Lorem ipsum dolor sit amet, a arcu justo eget, placerat suspendisse ornare accumsan et fringilla consectetuer</p>
+          <p>Upload your most recent Resume and showcase your skills to various recruiters </p>
         </div>
       </div> 
 
@@ -50,7 +50,7 @@ if(isset($_POST['submit'])){
         <img src="img/search.png" alt="Avatar">
         <div class="container">
           <div id="info-head"><b>Find a Job</b></div><br>
-          <p>Lorem ipsum dolor sit amet, a arcu justo eget, placerat suspendisse ornare accumsan et fringilla consectetuer</p>
+          <p>Search for over a myriad of Jobs and apply for the one most suitable with your skills</p>
         </div>
       </div>   
     </div>
