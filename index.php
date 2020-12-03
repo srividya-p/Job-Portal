@@ -9,9 +9,11 @@ if(isset($_POST['submit'])){
   $query= mysqli_query($conn, "insert into querydesk(email,message)
   values('$email','$msg')");
 
-    /*if ( $query ) {
+    if ( $query ) {
     echo "<script>alert('Your Query/Message was sent successfully.')</script>";
-  }*/
+  } else{
+    echo "<script>alert('Error! Your Query/Message was not sent!')</script>";
+  }
 }
 ?>
 <body id="bod"> 
@@ -129,34 +131,35 @@ if(isset($_POST['submit'])){
     </div>
   </div>
   <br><br>
-  <div id="current">
-    <div class="head">
+  <div class="head">
       <br>
       <div class="heading"> Job Categories</div>
     </div> <br><br>
+  <div id="current">
     <div>
+      <br><br><br><br>
       <div class="cat">
         <ul class="category">
-          <li><a class="cat-but" href="#">Web Development</a></li><br><br><br>
-          <li><a class="cat-but" href="#">Graphic Designing</a></li><br><br><br>
-          <li><a class="cat-but" href="#">Logistics</a></li><br><br><br>
-          <li><a class="cat-but" href="#">Advertising</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Web Development</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Graphic Designing</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Logistics</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Advertising</a></li><br><br><br>
         </ul>
       </div>
       <div class="cat">
         <ul class="category">
-          <li><a class="cat-but" href="#">Consultancy</a></li><br><br><br>
-          <li><a class="cat-but" href="#">Pharma</a></li><br><br><br>
-          <li><a class="cat-but" href="#">Telecom Software</a></li><br><br><br>
-          <li><a class="cat-but" href="#">Marketting</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Consultancy</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Pharma</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Telecom Software</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Marketing</a></li><br><br><br>
         </ul>
       </div>
       <div class="cat">
         <ul class="category">
-          <li><a class="cat-but" href="#">System Programming</a></li><br><br><br>
-          <li><a class="cat-but" href="#">Analytics</a></li><br><br><br>
-          <li><a class="cat-but" href="#">Accounting</a></li><br><br><br>
-          <li><a class="cat-but" href="#">Content Writing</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Programming</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Analytics</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Accounting</a></li><br><br><br>
+          <li><a class="cat-but" href="seeker_signin.php">Content Writing</a></li><br><br><br>
         </ul>
       </div>
     </div>

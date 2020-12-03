@@ -8,6 +8,9 @@
   src: url('../fonts/raleway/Raleway-SemiBold.ttf'); 
 }
 
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+
 body {
   font-family: Raleway-Semibold;
   background-color: #fafafa;
@@ -135,7 +138,7 @@ body {
   text-align: center;
   font-size: 16px;
   line-height: 1.5;
-  color: aqua;
+  color: black
 }
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -163,7 +166,7 @@ body {
 .post-slider .prev{
   position: absolute;
   top: 1550px;
-  left: 45px;
+  left: 110px;
   font-size: 2em;
   color: #3498db;
   cursor: pointer;
@@ -171,7 +174,7 @@ body {
 .post-slider .next{
   position: absolute;
   top: 1550px;
-  right: 45px;
+  right: 110px;
   font-size: 2em;
   color: #3498db;
   cursor: pointer;
@@ -194,7 +197,7 @@ body {
 .post-slider .post-wrapper .post{
   display: inline-block;
   width: 200px;
-  height: 580px;
+  height: 470px;
   margin: 0 15px;
   background-color:#ffffff;
   border-radius: 5px;
@@ -212,7 +215,7 @@ body {
 
 .post-slider .post-wrapper .post .content{
   padding: 6px 6px 6px 6px;
-  font-size: 17px;
+  font-size: 14px;
   text-align: center;
   line-height: 1.8;
 }
@@ -227,7 +230,7 @@ body {
 }
 .post .content .btn button{
   font-size: 18px;
-  height: 10%;
+  height: 8%;
   width: 120px;
   vertical-align: bottom;
   padding:3px 3px 3px 3px;
@@ -236,15 +239,17 @@ body {
   background-color: #1780e8;
   color: white;
   transition: 0.2s;
+  margin-bottom: 10px;
+  position: fixed;
+  bottom: 0;
 }
 .post .content .btn button:hover{
   transform: scale(0.9);
 }
 
 #current{
-    margin-left: 20%;
-    margin-right: 20%;
-    height: 480px;
+    height: 450px;
+    width: 100%;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -267,7 +272,7 @@ body {
     height: 320px;
     float: left;
     list-style-type: none;
-    margin-left: 2%;
+    margin-left: 11%;
     margin-right: 2%;
 }
 

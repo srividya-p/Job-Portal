@@ -129,10 +129,10 @@ $code = array_search($country, $countrycodes);
             </div>
             <div class="form-right">
               <div>
-                <input class="form-control" type="password" id="password" name="password" minlength="8" placeholder="Password *" onchange="return passvalidation(event);" required>
+                <input class="form-control" value="<?php echo $password?>" type="password" id="password" name="password" minlength="8" placeholder="Password *" onchange="return passvalidation(event);" required>
               </div>
               <div>
-                <input class="form-control" type="password" id="cpassword" name="cpassword" minlength="8" placeholder="Confirm Password *" required>
+                <input class="form-control" value="<?php echo $password?>" type="password" id="cpassword" name="cpassword" minlength="8" placeholder="Confirm Password *" required>
                 <span id="pwd"> </span>
               </div>
               <div>
@@ -170,9 +170,6 @@ $code = array_search($country, $countrycodes);
               </div>
               <div>
                 <input class="form-control" type="text" id="stream" name="stream" placeholder="Stream *" value="<?php echo $stream; ?>" required>
-              </div>
-              <div>
-                <label style="font-size:16px"><input type="checkbox">&nbsp;I accept all the <a href="#modalWindow">terms & conditions</a></label>
               </div>
             </div>
             <div class="form-right">

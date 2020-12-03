@@ -33,6 +33,11 @@ if (mysqli_num_rows($query) > 0) {
                     Companies
                 </a>
 
+                <a href="query_desk.php">
+                    <span data-feather="help-circle"></span>
+                    Query Desk
+                </a>
+
                 <a href="admin_account.php">
                     <span data-feather="settings"></span>
                     Admin Accounts

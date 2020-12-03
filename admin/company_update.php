@@ -32,7 +32,7 @@ $code = array_search($country, $countrycodes);
     }
 </style>
 
-<p><a href="dashboard.php" >Dashboard</a>&nbsp;/&nbsp;<a href="company.php">Companies</a>&nbsp;/&nbsp;<a href="#">Edit Company</a></p>
+<p><a href="dashboard.php" >Dashboard</a>&nbsp;/&nbsp;<a href="company.php">Companies</a>&nbsp;/&nbsp;<a href="#">Your Profile</a></p>
 
 <div class="row">
     <div class="col">

@@ -1,14 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
 *{
-  margin: 0;
-  padding: 0;
-  color: #d9d9d9;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 page-wrapper{
     min-height: 100%;
+    color: white;
 }
 
 footer{
@@ -19,6 +17,7 @@ footer{
 }
 .main-content{
   display: flex;
+  color: rgb(211, 209, 209);
 }
 .main-content .box{
   flex-basis: 50%;
@@ -54,9 +53,11 @@ footer{
 }
 .left .content .social{
   margin: 20px 0 0 0;
+  color: white;
 }
 .left .content .social a{
   padding: 0 2px;
+  color: white;
 }
 .left .content .social a span{
   height: 40px;
@@ -99,6 +100,10 @@ footer{
     margin: 15px 0 0 0;
     padding: 0 1px;
 }
+
+.left .content .email a{
+  color: white
+}
 .main-content .center{
     flex-basis: 40%;
 }
@@ -111,6 +116,7 @@ footer{
     line-height: 30px;
     text-decoration: none;
     transition: all .2s;
+    color: #1963E4;
 }
 
 .center .content .links ul a:hover{
@@ -129,6 +135,7 @@ footer{
 }
 .right form .msg{
   margin-top: 10px;
+  color: rgb(192, 192, 192);
 }
 .right form input, .right form textarea{
   width: 100%;
@@ -136,6 +143,9 @@ footer{
   background: #151515;
   padding-left: 10px;
   border: 1px solid #222222;
+  color: white;
+  border: solid rgb(172, 170, 170) 1px;
+  border-radius: 5px;
 }
 .right form input:focus,
 .right form textarea:focus{

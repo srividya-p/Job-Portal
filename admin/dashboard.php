@@ -161,7 +161,7 @@ if (mysqli_num_rows($query) > 0) {
   <div class="row">
     <div class="grid-container">
 
-      <div class="card" style="background-color: #5E8CAD;">
+      <div class="card" style="background-color: #2A75D5;">
         <div class="container">
           <div class="panel panel-primary">
             <div class="panel-heading">
@@ -184,7 +184,7 @@ if (mysqli_num_rows($query) > 0) {
         </div>
       </div>
 
-      <div class="card" style="background-color: #3CB371 ;">
+      <div class="card" style="background-color:#6EF140 ;">
         <div class="container">
           <div class="panel panel-green">
             <div class="panel-heading">
@@ -211,7 +211,7 @@ if (mysqli_num_rows($query) > 0) {
     <div class="row">
       <div class="grid-container">
 
-        <div class="card" style="background-color: #F0E68C;">
+        <div class="card" style="background-color: #F4ED5A;">
           <div class="container">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -235,7 +235,7 @@ if (mysqli_num_rows($query) > 0) {
           </div>
         </div>
 
-        <div class="card" style="background-color: #d4793a">
+        <div class="card" style="background-color: #F16040">
           <div class="container">
             <div class="panel panel-green">
               <div class="panel-heading">

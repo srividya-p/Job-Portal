@@ -24,6 +24,7 @@ include('include/header.php');
           <input type="text" name="website" class="form-control inp" placeholder="Company Website *" required>
         </div>
         <div>
+          <label>Date of Formation</label>
           <input class="form-control inp" type="date" id="dob" min="1960-01-01" max="2018-01-31" name="dob" value="" placeholder="Establishment Date" required>
         </div>
         <div>
@@ -53,7 +54,7 @@ include('include/header.php');
 
         <p class="sub-head"> Account Details </p>
         <div>
-          <input type="text" id="email" name="email" class="form-control inp" placeholder="Email * (abc@example.com)" onchange="return validateEmail(event);" required>
+          <input type="email" id="email" name="email" class="form-control inp" placeholder="Email * (abc@example.com)" onchange="return validateEmail(event);" required>
         </div>
         <div>
           <input type="text" name="Phone_no" class="form-control inp" maxlength="10" minlength="10" placeholder="Phone Number" onkeypress="return validatePhone(event);" required>

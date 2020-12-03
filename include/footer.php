@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
+  <body id="foot">
     <div class ="page-wrapper">
     </div>
     <footer>

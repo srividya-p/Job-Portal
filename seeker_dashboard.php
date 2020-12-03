@@ -72,7 +72,7 @@ window.onclick = function(e) {
         $row = mysqli_fetch_array($query)
         ?>
         <div class="dropdown">
-        <a class="dropbtn" onclick="myFunction()"><img src="<?php echo $row['profile_img']; ?>" onerror="this.onerror=null; this.src='img/profile.png'" class="Profile" style="border-radius: 50%; height: 30px; width: 30px; overflow-y: visible; z-index: 1; ">&nbsp;<?php echo $row['fname']; ?></a>
+        <a class="dropbtn" onclick="myFunction()"><img src="<?php echo $row['profile_img']; ?>" onerror="this.onerror=null; this.src='img/profile.png'" class="Profile" style="border-radius: 50%; height: 30px; width: 30px; overflow-y: visible; z-index: 1; ">&emsp;<span style="vertical-align:middle"><?php echo $row['fname'];?></span></a>
         <div class="dropdown-content" id="myDropdown">
           <a href="seeker_update1.php?id=<?php echo $row['id']?>">Edit Profile</a>
           <a href="logout.php"><span class="iconify" data-icon="feather-power" data-inline="false"></span> Logout</a>

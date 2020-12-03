@@ -86,10 +86,10 @@ if (isset($_POST['submit'])) {
           <div class="form-top">
             <div class="form-left">
               <div>
-                <input class="form-control" type="text" id="fname" name="fname" placeholder="First Name *" required>
+                <input class="form-control" type="text" id="fname" name="fname" placeholder="First Name *" pattern="[a-zA-Z][a-zA-Z ]{2,}" required>
               </div>
               <div>
-                <input class="form-control" type="text" id="lname" name="lname" placeholder="Last Name *" required>
+                <input class="form-control" type="text" id="lname" name="lname" placeholder="Last Name *" pattern="[a-zA-Z][a-zA-Z ]{2,}" required>
               </div>
               <div>
                 <input class="form-control" type="email" id="email" name="email" placeholder="Email * (abc@example.com)" onchange="return validateEmail(event);" required>
