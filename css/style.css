@@ -47,7 +47,8 @@ body {
 
 .topnav {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    
   }
   
   .topnav a {
@@ -69,8 +70,14 @@ body {
     font-weight: bolder;
     color: black;
   }
-  
+
   .topnav-right {
+    float: right;
+    margin-right: 300px;
+  }
+
+  
+  .navbar {
     float: right;
     margin-right: 300px;
   }

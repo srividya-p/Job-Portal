@@ -68,7 +68,7 @@ if (mysqli_num_rows($query) > 0) {
                                         Accepted
                                     </a>
 
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="company_update.php">
                                         <span data-feather="user"></span>
                                         Your Profile
                                     </a>
