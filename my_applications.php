@@ -42,11 +42,8 @@ if ($_SESSION['email'] == true) {
       <div class="topnav-left">
         <a href="seeker_dashboard.php" class="active">Job Portal</a>
       </div>
-      <div class="topnav-right">
-        <a href="my_applications.php" style="background-color: #1963E4; border-radius: 10px;">My Applications</a>
-        <div class="profile_dropdown">
-          <a href="logout.php" class="dropbtn" style="background-color: #19E491; border-radius: 10px;"><i class="fa fa-user"></i></a>
-        </div>
+      <div class="navbar">
+        <a href="seeker_dashboard.php" style="background-color: #1963E4; border-radius: 10px;">Dashboard</a>
       </div>
     </div>
 

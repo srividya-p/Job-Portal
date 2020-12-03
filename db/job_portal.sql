@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 02, 2020 at 01:07 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Host: 127.0.0.1
+-- Generation Time: Dec 03, 2020 at 09:08 AM
+-- Server version: 8.0.21
+-- PHP Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin_login` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `admin_email` varchar(100) NOT NULL,
   `admin_pass` varchar(100) NOT NULL,
   `admin_username` varchar(100) NOT NULL,
@@ -50,10 +50,10 @@ INSERT INTO `admin_login` (`id`, `admin_email`, `admin_pass`, `admin_username`, 
 --
 
 CREATE TABLE `applicant` (
-  `job_post_id` int(11) NOT NULL,
-  `user_id` int(100) NOT NULL,
+  `job_post_id` int NOT NULL,
+  `user_id` int NOT NULL,
   `status` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `applicant`
@@ -69,7 +69,7 @@ INSERT INTO `applicant` (`job_post_id`, `user_id`, `status`) VALUES
 --
 
 CREATE TABLE `company` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL,
   `country` varchar(50) NOT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE `company` (
   `password` varchar(50) NOT NULL,
   `photo` varchar(200) NOT NULL,
   `form_doc` varchar(200) NOT NULL,
-  `verified` int(11) NOT NULL
+  `verified` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -100,15 +100,15 @@ INSERT INTO `company` (`id`, `name`, `description`, `country`, `stream`, `websit
 --
 
 CREATE TABLE `jobs` (
-  `job_id` int(11) NOT NULL,
+  `job_id` int NOT NULL,
   `creator_email` varchar(100) NOT NULL,
   `job_title` varchar(100) NOT NULL,
   `description` varchar(200) NOT NULL,
   `country` varchar(50) NOT NULL,
   `state` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
-  `openings` int(200) NOT NULL,
-  `salary` bigint(255) NOT NULL
+  `openings` int NOT NULL,
+  `salary` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -129,7 +129,7 @@ INSERT INTO `jobs` (`job_id`, `creator_email`, `job_title`, `description`, `coun
 --
 
 CREATE TABLE `job_seeker` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -147,15 +147,27 @@ CREATE TABLE `job_seeker` (
   `cgpa` varchar(10) NOT NULL,
   `aboutme` varchar(255) DEFAULT NULL,
   `skills` varchar(255) DEFAULT NULL,
-  `resume` varchar(200) NOT NULL
+  `resume` varchar(200) NOT NULL,
+  `profile_img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `job_seeker`
 --
 
-INSERT INTO `job_seeker` (`id`, `fname`, `lname`, `email`, `password`, `mobileno`, `address`, `country`, `city`, `state`, `dob`, `age`, `qualification`, `stream`, `passingyear`, `cgpa`, `aboutme`, `skills`, `resume`) VALUES
-(6, 'Srividya', 'Subramanian', 'srividya.ssa@gmail.com', 'MWRkZjFkNDBmYzBkOWZmNTIyMzQ3OTAxODkxODI1MTM=', '9326012248', 'Lake City Towers', 'Algeria', 'Saida', 'Saida', '1999-01-21', '21', 'B. A.', 'Science', '2020-10-22', '10', '', '', '/ip/seekerFiles/resumes/Recovery.pdf');
+INSERT INTO `job_seeker` (`id`, `fname`, `lname`, `email`, `password`, `mobileno`, `address`, `country`, `city`, `state`, `dob`, `age`, `qualification`, `stream`, `passingyear`, `cgpa`, `aboutme`, `skills`, `resume`, `profile_img`) VALUES
+(6, 'Srividya', 'Subramanian', 'srividya.ssa@gmail.com', 'MWRkZjFkNDBmYzBkOWZmNTIyMzQ3OTAxODkxODI1MTM=', '9326012248', 'Lake City Towers', 'Algeria', 'Saida', 'Saida', '1999-01-21', '21', 'B. A.', 'Science', '2020-10-22', '10', '', '', '/ip/seekerFiles/resumes/Recovery.pdf', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `querydesk`
+--
+
+CREATE TABLE `querydesk` (
+  `email` varchar(255) NOT NULL,
+  `message` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -193,6 +205,12 @@ ALTER TABLE `job_seeker`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `querydesk`
+--
+ALTER TABLE `querydesk`
+  ADD PRIMARY KEY (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -200,25 +218,25 @@ ALTER TABLE `job_seeker`
 -- AUTO_INCREMENT for table `admin_login`
 --
 ALTER TABLE `admin_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `job_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `job_seeker`
 --
 ALTER TABLE `job_seeker`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

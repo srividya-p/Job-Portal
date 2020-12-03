@@ -1,6 +1,7 @@
 <?php
 include('include/header.php');
 include('connection/db.php');
+include('term_and_condition.php');
 define ('SITE_ROOT', realpath(dirname(__FILE__)));
 
 if (isset($_POST['submit'])) {
@@ -149,7 +150,7 @@ if (isset($_POST['submit'])) {
                 <input class="form-control" type="text" id="stream" name="stream" placeholder="Stream *" required>
               </div>
               <div>
-                <label style="font-size:16px"><input type="checkbox">&nbsp;I accept all the <a href="#">terms & conditions</a></label>
+                <label style="font-size:16px"><input type="checkbox">&nbsp;I accept all the <a href="#modalWindow">terms & conditions</a></label>
               </div>
             </div>
             <div class="form-right">

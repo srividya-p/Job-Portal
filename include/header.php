@@ -17,16 +17,16 @@
       </div>
       <div class="topnav-right">
         <a href="index.php">Home</a>
-        <a href="about.php">About</a>
-        <a href="blog.php">Blog</a>
-        <a href="contact.php">Contact</a> 
+        <a href="index.php#aboutus">About</a>
+        <a href="index.php#blog">Blog</a>
+        <a href="index.php#content">Contact</a> 
         <a href = "company_signin.php" style = "background-color: #1963E4; border-radius: 10px;" >Post a Job</a> 
         <a href = "seeker_signin.php" style="background-color: #19E491; border-radius: 10px;" >Want a Job</a>
       </div>
     </div>
 
     <div id='main'>
-      <br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br>
       <p id='p1'>We have 850,000 great job offers you deserve!</p>
       <h1 id="dream">Your Dream</h1>
       <h1 id="wait">Job is waiting</h1>
