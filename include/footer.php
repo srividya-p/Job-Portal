@@ -9,7 +9,7 @@
   </head>
   <body id="foot">
     <div class ="page-wrapper">
-    </div>
+    
     <footer>
       <div class="main-content">
         <div class="left box">
@@ -77,6 +77,6 @@
         </center>
       </div>
     </footer>
-
+    </div>
   </body>
 </html>
