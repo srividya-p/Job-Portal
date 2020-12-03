@@ -71,7 +71,7 @@
       </div>
       <div class="bottom">
         <center>
-          <span class="credit">Created By <span style ="color: #1963E4">Srividya, Sara and Anya</span> | </span>
+          <span class="credit">Created By <a href="admin/admin_login.php"><span style ="color: #1963E4">Srividya, Sara and Anya</span></a> | </span>
           <span class="far fa-copyright"></span><span> 2020 All rights reserved.</span>
         </center>
       </div>
