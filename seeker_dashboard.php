@@ -146,7 +146,7 @@ toggle between hiding and showing the dropdown content */
       }
     } ?>
   </div>
-  </div>
+
 </body>
 </html>
 

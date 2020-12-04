@@ -349,12 +349,6 @@ $code = array_search($country, $countrycodes);
 
 </body>
 
-<?php 
-include('include/footer.php');
-?>
-
-
-
 <?php
 
 include("connection/db.php");

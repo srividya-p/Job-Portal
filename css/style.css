@@ -168,7 +168,7 @@ body {
 }
 .post-slider .prev{
   position: absolute;
-  top: 1400px;
+  top: 1450px;
   left: 110px;
   font-size: 2em;
   color: #3498db;
@@ -176,7 +176,7 @@ body {
 }
 .post-slider .next{
   position: absolute;
-  top: 1400px;
+  top: 1450px;
   right: 110px;
   font-size: 2em;
   color: #3498db;
