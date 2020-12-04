@@ -180,7 +180,7 @@ footer{
   color: #656565;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   footer{
     position: relative;
   }
@@ -188,6 +188,7 @@ footer{
     flex-wrap: wrap;
     flex-direction: column;
   }
+
   .main-content .box{
     margin: 5px 0;
   }
