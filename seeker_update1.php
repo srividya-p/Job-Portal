@@ -39,6 +39,7 @@ $code = array_search($country, $countrycodes);
 <head>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/seeker_signup.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
   <style>
     .registerSeeker input,
     textarea {
@@ -73,6 +74,7 @@ $code = array_search($country, $countrycodes);
 </head>
 
 <body class="limiter">
+  <br>
         <div class="topnav">
             <div class="topnav-left">
                 <a href="seeker_dashboard.php" style="color: white;" class="active"
@@ -183,7 +185,7 @@ $code = array_search($country, $countrycodes);
                 <label>Upload New Resume If Required:</label>
                 <input type="file" id="file" name="resume" class="form-control" onchange="return filetypeValidation(event);return filetypeValidation(event)" value="<?php echo $row['resume'];?>" >
                 <p id="output" style="font-size:14px;"></p>
-                <p>Current File: <?php echo $resume; ?></p>
+                <p>Current File:<br><?php echo $resume; ?></p>
                 <label style="color: red; font-size:14px;">File Format PDF Only!</label>
               </div>
             </div>
@@ -346,6 +348,10 @@ $code = array_search($country, $countrycodes);
 </script>
 
 </body>
+
+<?php 
+include('include/footer.php');
+?>
 
 
 

@@ -50,6 +50,7 @@ if (isset($_POST['submit'])) {
 <head>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/seeker_signup.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
   <style>
     .registerSeeker input,
     textarea {

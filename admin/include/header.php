@@ -32,6 +32,8 @@ if ($_SESSION['email'] == true) {
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//geodata.solutions/includes/countrystatecity.js"></script>
 
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
 <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 <script>
     feather.replace()

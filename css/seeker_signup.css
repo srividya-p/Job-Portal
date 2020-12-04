@@ -3,13 +3,11 @@
 	src: url('../fonts/raleway/Raleway-Black.ttf'); 
 }
 
-body, p, div, button{
-  font-family: Raleway-Semibold;
+*{
+  font-family: 'Poppins';
 }
 
 *{
-margin:0;
-padding:0;
 line-height:1.5;
 box-sizing: border-box;
 }
@@ -62,6 +60,8 @@ box-sizing: border-box;
   justify-content: center;
 }
  p.sub-head{
+  margin:0;
+  padding:0;
   font-style: normal;
   font-weight:500;
 	color: black;

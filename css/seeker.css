@@ -8,6 +8,10 @@
   src: url('../fonts/raleway/Raleway-SemiBold.ttf'); 
 }
 
+*{
+  font-family: 'Poppins';
+}
+
 /* Navbar container */
 .navbar {
   overflow: hidden;
@@ -102,22 +106,6 @@
   font-size: 20px;
   font-family: Raleway-SemiBold;
   border: 0;
-}
-
-/* body*/
-#page-wrapper {
-  margin: 15px;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 20% 60% 20% ;
-  grid-gap: 10px;
-  padding: 10px;
-  text-align: center;
-}
-
-#page-wrapper .column{
-  border-radius: 8px;
-  margin: 10px;
 }
 
 #posts {

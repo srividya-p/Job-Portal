@@ -64,7 +64,7 @@ if (mysqli_num_rows($query) > 0) {
                 </div>
                 <div class="col-xs-9 text-right" style="text-align: right;">
                   <div class="huge"><?php echo $registered ?></div>
-                  <div>Registered Companies</div>
+                  <div>Registered</div>
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@ if (mysqli_num_rows($query) > 0) {
                   </div>
                   <div class="col-xs-9 text-right" style="text-align: right;">
                     <div class="huge"><?php echo $unregistered ?></div>
-                    <div>Unverified Companies</div>
+                    <div>Unverified</div>
                   </div>
                 </div>
               </div>

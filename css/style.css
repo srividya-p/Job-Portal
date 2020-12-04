@@ -8,12 +8,9 @@
   src: url('../fonts/raleway/Raleway-SemiBold.ttf'); 
 }
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-
-
 body {
-  font-family: Raleway-Semibold;
   background-color: #fafafa;
+  font-family :'Poppins';
 }
 
 #main{
@@ -27,21 +24,20 @@ body {
     background-image: url("/ip/img/bg_4.jpeg");
     filter: brightness(90%);
     opacity: 0.8;
-    height: 800px;
+    height: 590px;
 }
 
 #dream{
-    font-size: 60px;
+    font-size: 70px;
     color: black;
     font-weight: 900;
-    font-family: Raleway-Black;
+    font-family: 'Poppins';
 }
 
 #wait{
     font-size: 60px;
     color: black;
-    font-weight: lighter;
-    font-family: Raleway-Black;
+    font-family: 'Poppins';
 }
 
 #p1{
@@ -131,6 +127,7 @@ body {
 }
 .card #info-head{
   font-size: 25px;
+  font-family :'Poppins';
 }
 .card .container{
   height: 220px;
@@ -165,7 +162,7 @@ body {
 }
 .post-slider .prev{
   position: absolute;
-  top: 1550px;
+  top: 1400px;
   left: 110px;
   font-size: 2em;
   color: #3498db;
@@ -173,14 +170,14 @@ body {
 }
 .post-slider .next{
   position: absolute;
-  top: 1550px;
+  top: 1400px;
   right: 110px;
   font-size: 2em;
   color: #3498db;
   cursor: pointer;
 }
 .post-slider .slider-title{
-  font-family: Raleway-Black;
+  font-family: 'Poppins';
   font-weight: lighter;
   margin : 15px auto;
   text-align: center;
@@ -262,7 +259,7 @@ body {
 
 .head .heading{
   color: black;
-  font-family: Raleway-Black;
+  font-family: 'Poppins';
   font-weight: lighter;
   font-size: 30px;
 }
@@ -278,7 +275,7 @@ body {
 
 .cat-but{
     width: 200px;
-    font-size: 19px;
+    font-size: 18px;
     color: #1963E4;
     border: solid black 2px;
     text-decoration: none;

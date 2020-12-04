@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
         <img src="img/resume.png" alt="Avatar">
         <div class="container">
           <div id="info-head"><b>Submit Resume</b></div><br>
-          <p>Upload your most recent Resume and showcase your skills to various recruiters </p>
+          <p>Upload your most recent Resume and showcase your skills to various recruiters and get noticed.</p>
         </div>
       </div> 
 
@@ -50,7 +50,7 @@ if(isset($_POST['submit'])){
         <img src="img/search.png" alt="Avatar">
         <div class="container">
           <div id="info-head"><b>Find a Job</b></div><br>
-          <p>Search for over a myriad of Jobs and apply for the one most suitable with your skills</p>
+          <p>Search for over a myriad of Jobs and apply for the one most suitable with your skills and get selected.</p>
         </div>
       </div>   
     </div>
@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
             <div class="content">
                 <div class="title"> <a href="https://economictimes.indiatimes.com/jobs/law-firms-consultancies-in-india-restart-hiring-as-economy-bounces-back/articleshow/79458622.cms?utm_source=contentofinterest&utm_medium=text&utm_campaign=cppst">
                 Law firms, consultancies in India restart hiring as economy bounces back</a></div>
-                <div class="author"><span style="color:black;font-weight:bolder"> Author:&nbsp;</span> Sachin Dava & Maulik Vyas </div>
+                <div class="author"><span style="color:black;font-weight:bolder"> Author:&nbsp;</span> Sachin Dava</div>
                 <div class="newssrc"><span style="color:black;font-weight:bolder">News Source:&nbsp;</span> Economic Times </div>
                 <div class="pub"><span style="color:black;font-weight:bolder">Updated On:&nbsp;</span> Dec 02, 2020, 08.57 PM IST</div>
                 <div class="btn">
@@ -137,7 +137,7 @@ if(isset($_POST['submit'])){
     </div> <br><br>
   <div id="current">
     <div>
-      <br><br><br><br>
+      <br><br>
       <div class="cat">
         <ul class="category">
           <li><a class="cat-but" href="seeker_signin.php">Web Development</a></li><br><br><br>

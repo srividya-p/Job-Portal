@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="css/style.css"></link>
   <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 
 <header>
@@ -26,7 +27,7 @@
     </div>
 
     <div id='main'>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br>
       <p id='p1'>We have 850,000 great job offers you deserve!</p>
       <h1 id="dream">Your Dream</h1>
       <h1 id="wait">Job is waiting</h1>

@@ -18,6 +18,7 @@ if ($_SESSION['email'] == true) {
   </link>
   <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 
 <style>
@@ -48,24 +49,12 @@ if ($_SESSION['email'] == true) {
     </div>
 
     <div id='main'>
-      <br><br><br><br><br><br><br><br>
+      <br><br><br><br><br>
       <p id='p1'>We have 850,000 great job offers you deserve!</p>
       <h1 id="dream">Your Dream</h1>
       <h1 id="wait">Job is waiting</h1>
     </div>
     <br>
-
-    <div class="search" id="main1">
-      <!-- search bar -->
-      <div class="search_text" id="searchjum" style="text-align: left; padding-left: 27% ">
-        <h1 style="font-size: 35px;">Search for Jobs</h1>
-
-        <form class="form-inline" id="homesearch">
-          <input type="text" class="form-control" size="50" placeholder="Enter your search keyword" name="keyword" id="keyword">
-          <button type="button" onclick="search()" class="btn " style="background-color: #1963E4; border-radius: 10px; padding: 10px;"><span class="glyphicon glyphicon-search"></span> Search</button>
-        </form>
-      </div>
-    </div>
   </div>
 </header>
 

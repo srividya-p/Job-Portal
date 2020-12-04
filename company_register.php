@@ -6,6 +6,14 @@ include('include/header.php');
 <html>
 
 <link rel="stylesheet" type="text/css" href="css/register_company.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+<style>
+  #wrap{
+    height: 800px;
+  }
+</style>
 
 <body>
   <section style="width: 60%; margin-left: 20%; background-color: #F0F3F7; border-radius: 20px;">

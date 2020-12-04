@@ -19,6 +19,7 @@ if ($_SESSION['email'] == true) {
   </link>
   <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 
 <style>
@@ -34,26 +35,30 @@ if ($_SESSION['email'] == true) {
     font-size: 16px;
     font-family: Raleway-SemiBold;
   }
+
+  #wrap {
+    height: 800px;
+  }
 </style>
 
 <header>
   <script>
-/* When the user clicks on the button, 
+    /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-  var myDropdown = document.getElementById("myDropdown");
-    if (myDropdown.classList.contains('show')) {
-      myDropdown.classList.remove('show');
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
     }
-  }
-}
-</script>
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(e) {
+      if (!e.target.matches('.dropbtn')) {
+        var myDropdown = document.getElementById("myDropdown");
+        if (myDropdown.classList.contains('show')) {
+          myDropdown.classList.remove('show');
+        }
+      }
+    }
+  </script>
   <div id='wrap'>
     <br><br>
     <div class="topnav">
@@ -61,34 +66,34 @@ window.onclick = function(e) {
         <a href="seeker_dashboard.php" class="active">Job Portal</a>
       </div>
       <div class="navbar" style="display: inline-block;">
-        <div >
-        <a href="my_applications.php" style="background-color: #1963E4; border-radius: 10px; height: 31px; vertical-align: bottom;">My Applications</a>
-        </div><nobr>
-        <div class="profile_dropdown">
-          <?php
-        $email=$_SESSION['email'];
-        include("connection/db.php");
-        $query=mysqli_query($conn,"select id,email,fname,profile_img from job_seeker where email='$email';");
-        $row = mysqli_fetch_array($query)
-        ?>
-        <div class="dropdown">
-        <a class="dropbtn" onclick="myFunction()"><img src="<?php echo $row['profile_img']; ?>" onerror="this.onerror=null; this.src='img/profile.png'" class="Profile" style="border-radius: 50%; height: 30px; width: 30px; overflow-y: visible; z-index: 1; ">&emsp;<span style="vertical-align:middle"><?php echo $row['fname'];?></span></a>
-        <div class="dropdown-content" id="myDropdown">
-          <a href="seeker_update1.php?id=<?php echo $row['id']?>">Edit Profile</a>
-          <a href="logout.php"><span class="iconify" data-icon="feather-power" data-inline="false"></span> Logout</a>
+        <div>
+          <a href="my_applications.php" style="background-color: #1963E4; border-radius: 10px; height: 31px; vertical-align: bottom;">My Applications</a>
         </div>
-        </div>
-        </div>
+        <nobr>
+          <div class="profile_dropdown">
+            <?php
+            $email = $_SESSION['email'];
+            include("connection/db.php");
+            $query = mysqli_query($conn, "select id,email,fname,profile_img from job_seeker where email='$email';");
+            $row = mysqli_fetch_array($query)
+            ?>
+            <div class="dropdown">
+              <a class="dropbtn" onclick="myFunction()"><img src="<?php echo $row['profile_img']; ?>" onerror="this.onerror=null; this.src='img/profile.png'" class="Profile" style="border-radius: 50%; height: 25px; width: 30px; overflow-y: visible; z-index: 1; "></a>
+              <div class="dropdown-content" id="myDropdown">
+                <a href="seeker_update1.php?id=<?php echo $row['id'] ?>">Edit Profile</a>
+                <a href="logout.php"><span class="iconify" data-icon="feather-power" data-inline="false"></span> Logout</a>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
 
     <div id='main'>
-      <br><br><br><br><br><br><br>
+      <br><br><br><br><br>
       <p id='p1'>We have 850,000 great job offers you deserve!</p>
       <h1 id="dream">Your Dream</h1>
       <h1 id="wait">Job is waiting</h1>
     </div>
-    <br>
 
     <div class="search" id="main1">
       <div class="search_text" id="searchjum" style="text-align: left; padding-left: 27% ">
@@ -141,7 +146,13 @@ window.onclick = function(e) {
       }
     } ?>
   </div>
+  </div>
 </body>
+</html>
+
+
+
+
 
 <script>
   function search() {

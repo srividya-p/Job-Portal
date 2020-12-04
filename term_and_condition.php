@@ -4,6 +4,7 @@
 	<link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 	<style>
 		@font-face {
 		  font-family: Raleway-Black;
@@ -12,7 +13,7 @@
 
 		#modalWindow {
 			position: fixed;
-			font-family: Raleway-Black;
+			font-family: 'Poppins';
 			top: 0;
 			right: 0;
 			bottom: 0;
