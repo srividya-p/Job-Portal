@@ -6,7 +6,9 @@ if (isset($_POST['submit'])) {
   $email = $_POST['email'];
   $msg = $_POST['msg'];
 
-  $query = mysqli_query($conn, "insert into querydesk values('$email','$msg');");
+  $query = mysqli_query($conn, "insert into querydesk(email, message) 
+  values('$email','$msg')");
+  
   if ($query) {
     echo "<script>alert('Your Query/Message was sent successfully.')</script>";
   } else {
