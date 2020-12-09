@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 09, 2020 at 08:38 AM
+-- Generation Time: Dec 09, 2020 at 08:42 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -216,12 +216,6 @@ ALTER TABLE `jobs`
 --
 ALTER TABLE `job_seeker`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `querydesk`
---
-ALTER TABLE `querydesk`
-  ADD PRIMARY KEY (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
