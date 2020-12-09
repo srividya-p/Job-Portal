@@ -115,7 +115,6 @@ toggle between hiding and showing the dropdown content */
     <img id="not-found" src="img/not-found.jpg" width="650px" height="500px" style="margin-left: 200px; display:none">
     <?php
     include("connection/db.php");
-    $conn = mysqli_connect('localhost', 'root', '', 'job_portal');
     $query = mysqli_query($conn, "select * from jobs");
     $user_email = $_SESSION['email'];
     $query2 = mysqli_query($conn, "select id from job_seeker where email='$user_email'");

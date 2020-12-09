@@ -34,12 +34,12 @@ session_start();
         <br><br>
         <div class="topnav">
             <div class="topnav-left">
-                <a href="http://localhost/ip/" style="color: white;" class="active">Job Portal</a>
+                <a href="../index.php" style="color: white;" class="active">Job Portal</a>
             </div>
             <div class="topnav-right">
-                <a href="http://localhost/ip/" style="color: white;">Home</a>
-                <a href="http://localhost/ip/company_signin.php" style="color: white;background-color: #1963E4; border-radius: 10px;">Post a Job</a>
-                <a href="http://localhost/ip/seeker_signin.php" style="color: white; background-color: #19E491; border-radius: 10px;">Want a Job</a>
+                <a href="../index.php" style="color: white;">Home</a>
+                <a href="../company_signin.php" style="color: white;background-color: #1963E4; border-radius: 10px;">Post a Job</a>
+                <a href="../seeker_signin.php" style="color: white; background-color: #19E491; border-radius: 10px;">Want a Job</a>
             </div>
         </div>
         <div class="container-login">

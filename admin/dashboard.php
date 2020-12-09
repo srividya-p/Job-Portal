@@ -13,7 +13,7 @@ include('include/sidebar.php');
 
 
 <?php
-$conn = mysqli_connect('localhost', 'root', '', 'job_portal');
+include('connection/db.php');
 $query = mysqli_query($conn, "select * from admin_login where 
 admin_email='{$_SESSION['email']}'");
 

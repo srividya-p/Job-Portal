@@ -63,7 +63,6 @@ if ($_SESSION['email'] == true) {
     <h1>My Applications</h1>
     <?php
     include("connection/db.php");
-    $conn = mysqli_connect('localhost', 'root', '', 'job_portal');
     
     $user_email = $_SESSION['email'];
     $query2 = mysqli_query($conn, "select id from job_seeker where email='$user_email'");

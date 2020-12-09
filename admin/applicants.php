@@ -6,7 +6,6 @@ include('include/sidebar.php');
 
 $company = $_SESSION['email'];
 
-$conn = mysqli_connect('localhost', 'root', '', 'job_portal');
 $query = mysqli_query($conn, "select j.job_title, j.job_id, s.id, s.fname, s.lname, s.resume,
  s.mobileno from job_seeker s, jobs j, applicant a where a.user_id=s.id and
 a.job_post_id=j.job_id and a.status='applied' and j.creator_email='$company'");

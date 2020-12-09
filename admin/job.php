@@ -4,7 +4,6 @@ include("connection/db.php");
 include('include/header.php');
 include('include/sidebar.php');
 
-$conn = mysqli_connect('localhost', 'root', '', 'job_portal');
 $query = mysqli_query($conn, "select * from admin_login where 
 admin_email='{$_SESSION['email']}'");
 if (mysqli_num_rows($query) > 0) {

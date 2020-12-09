@@ -5,7 +5,7 @@ header('location:dashboard.php');
 include('connection/db.php');
 $query= mysqli_query($conn, "select * from job_seeker where email='{$SESSION['email']}'");
 if($query){
-    header("location:http://localhost/ip/");
+    header("location: index.php");
 }
 else{
     //header("location:admin_login.php");
