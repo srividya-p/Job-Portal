@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 03, 2020 at 09:08 AM
--- Server version: 8.0.21
--- PHP Version: 7.4.7
+-- Host: localhost
+-- Generation Time: Dec 09, 2020 at 08:38 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin_login` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `admin_email` varchar(100) NOT NULL,
   `admin_pass` varchar(100) NOT NULL,
   `admin_username` varchar(100) NOT NULL,
@@ -50,8 +50,8 @@ INSERT INTO `admin_login` (`id`, `admin_email`, `admin_pass`, `admin_username`, 
 --
 
 CREATE TABLE `applicant` (
-  `job_post_id` int NOT NULL,
-  `user_id` int NOT NULL,
+  `job_post_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -60,7 +60,9 @@ CREATE TABLE `applicant` (
 --
 
 INSERT INTO `applicant` (`job_post_id`, `user_id`, `status`) VALUES
-(13, 6, 'applied');
+(13, 6, 'applied'),
+(15, 6, 'selected'),
+(16, 6, 'not selected');
 
 -- --------------------------------------------------------
 
@@ -69,7 +71,7 @@ INSERT INTO `applicant` (`job_post_id`, `user_id`, `status`) VALUES
 --
 
 CREATE TABLE `company` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL,
   `country` varchar(50) NOT NULL,
@@ -81,7 +83,7 @@ CREATE TABLE `company` (
   `password` varchar(50) NOT NULL,
   `photo` varchar(200) NOT NULL,
   `form_doc` varchar(200) NOT NULL,
-  `verified` int NOT NULL
+  `verified` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -89,9 +91,9 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`id`, `name`, `description`, `country`, `stream`, `website`, `date`, `email`, `phone`, `password`, `photo`, `form_doc`, `verified`) VALUES
-(43, 'Company1', 'Company Description\r\n		            	', '', 'cfkc', 'cfkmc', '2018-01-20', 'scs1.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/company1.jpg', '/ip/companyFiles/formDocs/company1.pdf', 1),
-(45, 'Company2', 'Company Description\r\n		            	', '', 'asa', 'cfkmc', '2018-01-21', 'scs2.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/company2.jpg', '/ip/companyFiles/formDocs/company2.pdf', 1),
-(46, 'Company3', 'Company Description\r\n		            	', 'Azerbaijan', 'cfkc', 'cfkmc', '2018-01-12', 'scs3.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/company3.png', '/ip/companyFiles/formDocs/company3.pdf', 0);
+(43, 'Company1', 'Company Description\r\n		            	                                                                                                                                ', 'Algeria', 'cfkc', 'cfkmc', '2018-01-20', 'scs1.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/company1.jpg', '/ip/companyFiles/formDocs/company1.pdf', 1),
+(45, 'Company2', 'Company Description\r\n		            	                                                ', 'Belgium', 'asa', 'cfkmc', '2018-01-21', 'scs2.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/company2.jpg', '/ip/companyFiles/formDocs/company2.pdf', 1),
+(48, 'Company3', 'Company Description\r\n		            	', 'India', 'cfkc', 'cfkmc', '2018-01-05', 'scs3.laptop@gmail.com', '9326012248', 'abc@1234', '/ip/companyFiles/profilePics/company3.png', '/ip/companyFiles/formDocs/company3.pdf', 1);
 
 -- --------------------------------------------------------
 
@@ -100,15 +102,15 @@ INSERT INTO `company` (`id`, `name`, `description`, `country`, `stream`, `websit
 --
 
 CREATE TABLE `jobs` (
-  `job_id` int NOT NULL,
+  `job_id` int(11) NOT NULL,
   `creator_email` varchar(100) NOT NULL,
   `job_title` varchar(100) NOT NULL,
   `description` varchar(200) NOT NULL,
   `country` varchar(50) NOT NULL,
   `state` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
-  `openings` int NOT NULL,
-  `salary` bigint NOT NULL
+  `openings` int(11) NOT NULL,
+  `salary` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -116,11 +118,12 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`job_id`, `creator_email`, `job_title`, `description`, `country`, `state`, `city`, `openings`, `salary`) VALUES
-(13, 'scs1.laptop@gmail.com', 'Android Developer', 'abc', 'Bangladesh', 'Sarankhola', 'Khulna', 2, 2000),
+(13, 'scs1.laptop@gmail.com', 'Android ', 'abc', 'Bangladesh', 'Select State', 'Select City', 2, 2000),
 (14, 'scs1.laptop@gmail.com', 'Node Dev', 'abc', 'Bahamas', 'Grand Cay', 'Grand Cay', 1, 4000),
 (15, 'scs2.laptop@gmail.com', 'AI/ML', 'abc', 'Azerbaijan', 'Istisu', 'Kalbajar', 1, 10000),
 (16, 'scs2.laptop@gmail.com', 'Web Dev', 'abc', 'Argentina', 'Garza', 'Santiago del Estero', 2, 1000),
-(17, 'scs2.laptop@gmail.com', 'Developer', 'abc', 'Belgium', 'Brussels', 'Brussels Capital', 1, 12345);
+(17, 'scs2.laptop@gmail.com', 'Developer', 'abc', 'Belgium', 'Brussels', 'Brussels Capital', 1, 12345),
+(20, 'scs3.laptop@gmail.com', 'Android ', 'qw', 'Barbados', 'Checker Hall', 'Saint Lucy', 1, 1234);
 
 -- --------------------------------------------------------
 
@@ -129,7 +132,7 @@ INSERT INTO `jobs` (`job_id`, `creator_email`, `job_title`, `description`, `coun
 --
 
 CREATE TABLE `job_seeker` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -156,7 +159,7 @@ CREATE TABLE `job_seeker` (
 --
 
 INSERT INTO `job_seeker` (`id`, `fname`, `lname`, `email`, `password`, `mobileno`, `address`, `country`, `city`, `state`, `dob`, `age`, `qualification`, `stream`, `passingyear`, `cgpa`, `aboutme`, `skills`, `resume`, `profile_img`) VALUES
-(6, 'Srividya', 'Subramanian', 'srividya.ssa@gmail.com', 'MWRkZjFkNDBmYzBkOWZmNTIyMzQ3OTAxODkxODI1MTM=', '9326012248', 'Lake City Towers', 'Algeria', 'Saida', 'Saida', '1999-01-21', '21', 'B. A.', 'Science', '2020-10-22', '10', '', '', '/ip/seekerFiles/resumes/Recovery.pdf', NULL);
+(6, 'Srividya', 'Subramanian', 'srividya.ssa@gmail.com', 'abc@1234', '9326012248', 'Lake City Towers', '', 'Saida', 'Saida', '1999-01-21', '21', 'B. A.', 'Science', '2020-10-22', '10', '', '', '/ip/seekerFiles/resumes/Recovery.pdf', '/ip/img/person_4.jpg');
 
 -- --------------------------------------------------------
 
@@ -168,6 +171,16 @@ CREATE TABLE `querydesk` (
   `email` varchar(255) NOT NULL,
   `message` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `querydesk`
+--
+
+INSERT INTO `querydesk` (`email`, `message`) VALUES
+('hello', 'hello'),
+('scs1.laptop@gmail.com', 'qwert'),
+('scs2.laptop@gmail.com', 'abcc'),
+('srividya.ssa@gmail.com', 'Who are you');
 
 --
 -- Indexes for dumped tables
@@ -218,25 +231,25 @@ ALTER TABLE `querydesk`
 -- AUTO_INCREMENT for table `admin_login`
 --
 ALTER TABLE `admin_login`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `job_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `job_seeker`
 --
 ALTER TABLE `job_seeker`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
