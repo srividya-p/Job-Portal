@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
 
   $query = mysqli_query($conn, "insert into querydesk(email, message) 
   values('$email','$msg')");
-  
+
   if ($query) {
     echo "<script>alert('Your Query/Message was sent successfully.')</script>";
   } else {
@@ -58,74 +58,35 @@ if (isset($_POST['submit'])) {
   </div>
   <br>
   <div id="blog" class="page-wrapper">
+    <?php
+    $url = 'http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=dd26976ed8184a4f8c897315c161e25c';
+    $response = file_get_contents($url);
+    $newsData = json_decode($response);
+    ?>
     <div class="post-slider">
       <h1 class="slider-title"> Recent News </h1>
       <i class="fas fa-chevron-left prev"></i>
       <i class="fas fa-chevron-right next"></i>
       <div class="post-wrapper">
-        <div class="post">
-          <img src="https://img.etimg.com/thumb/msid-79522315,width-300,imgsize-114429,,resizemode-4,quality-100/stress-agenc.jpg" alt="Avatar" class="slider-image">
-          <div class="content">
-            <div class="title"> <a href="https://economictimes.indiatimes.com/jobs/americans-are-staying-jobless-for-longer-as-pandemic-stretches-on/articleshow/79522305.cms?utm_source=contentofinterest&utm_medium=text&utm_campaign=cppst">
-                Americans are staying jobless for longer as pandemic stretches on</a></div>
-            <div class="author"><span style="color:black;font-weight:bolder"> Author:&nbsp;</span> AFP </div>
-            <div class="newssrc"><span style="color:black;font-weight:bolder">News Source:&nbsp;</span> Economic Times </div>
-            <div class="pub"><span style="color:black;font-weight:bolder">Updated On:&nbsp;</span> Dec 02, 2020, 08.40 PM IST</div>
-            <div class="btn">
-              <a href="https://economictimes.indiatimes.com/jobs/americans-are-staying-jobless-for-longer-as-pandemic-stretches-on/articleshow/79522305.cms?utm_source=contentofinterest&utm_medium=text&utm_campaign=cppst"><button>Read more</button></a>
+        <?php
+        foreach ($newsData->articles as $news) {
+        ?>
+          <div class="post">
+            <img src="<?php echo $news->urlToImage ?>" alt="Avatar" class="slider-image">
+            <div class="content">
+              <div class="title"> <a href="<?php echo $news->url ?>">
+                  <?php echo $news->title ?></a></div>
+              <div class="author"><span style="color:black;font-weight:bolder"> Author:&nbsp;</span><?php echo $news->author ?> </div>
+              <div class="newssrc"><span style="color:black;font-weight:bolder">News Source:&nbsp;</span> <?php echo $news->source->name ?> </div>
+              <div class="pub"><span style="color:black;font-weight:bolder">Published At:&nbsp;</span> <?php echo $news->publishedAt ?></div>
+              <div class="btn">
+                <a href="<?php echo $news->url ?>"><button>Read more</button></a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="post">
-          <img src="https://img.etimg.com/thumb/msid-79458616,width-300,imgsize-106665,,resizemode-4,quality-100/indian-law-firm.jpg" alt="Avatar" class="slider-image">
-          <div class="content">
-            <div class="title"> <a href="https://economictimes.indiatimes.com/jobs/law-firms-consultancies-in-india-restart-hiring-as-economy-bounces-back/articleshow/79458622.cms?utm_source=contentofinterest&utm_medium=text&utm_campaign=cppst">
-                Law firms, consultancies in India restart hiring as economy bounces back</a></div>
-            <div class="author"><span style="color:black;font-weight:bolder"> Author:&nbsp;</span> Sachin Dava</div>
-            <div class="newssrc"><span style="color:black;font-weight:bolder">News Source:&nbsp;</span> Economic Times </div>
-            <div class="pub"><span style="color:black;font-weight:bolder">Updated On:&nbsp;</span> Dec 02, 2020, 08.57 PM IST</div>
-            <div class="btn">
-              <a href="https://economictimes.indiatimes.com/jobs/law-firms-consultancies-in-india-restart-hiring-as-economy-bounces-back/articleshow/79458622.cms?utm_source=contentofinterest&utm_medium=text&utm_campaign=cppst"><button>Read more</button></a>
-            </div>
-          </div>
-        </div>
-        <div class="post">
-          <img src="https://img.etimg.com/thumb/msid-79535446,width-160,height-120,imgsize-99641/permanent-work-from-home-not-an-option-for-most-hindustan-unilever-staff.jpg" alt="Avatar" class="slider-image">
-          <div class="content">
-            <div class="title"> <a href="https://economictimes.indiatimes.com/jobs/permanent-wfh-not-an-option-for-most-hul-staff/articleshow/79535446.cms">
-                Permanent work from home not an option for most Hindustan Unilever staff</a></div>
-            <div class="author"><span style="color:black;font-weight:bolder"> Author:&nbsp;</span> Rica Bhattacharya </div>
-            <div class="newssrc"><span style="color:black;font-weight:bolder">News Source:&nbsp;</span> Economic Times </div>
-            <div class="pub"><span style="color:black;font-weight:bolder">Updated On:&nbsp;</span> Dec 02, 2020, 11.29 PM IST</div>
-            <div class="btn">
-              <a href='https://economictimes.indiatimes.com/jobs/permanent-wfh-not-an-option-for-most-hul-staff/articleshow/79535446.cms'><button>Read more</button></a>
-            </div>
-          </div>
-        </div>
-        <div class="post">
-          <img src="https://img.etimg.com/thumb/msid-79533456,width-300,imgsize-5752,,resizemode-4,quality-100/jobs-.jpg" alt="Avatar" class="slider-image">
-          <div class="content">
-            <div class="title"> <a href=https://economictimes.indiatimes.com/jobs/iit-bhu-students-receive-396-job-offers-including-ppos/articleshow/79533466.cms> IIT BHU students receive 396 job offers including PPOs</a> </div> <div class="author"><span style="color:black;font-weight:bolder"> Author:&nbsp;</span> Prachi Verma </div>
-            <div class="newssrc"><span style="color:black;font-weight:bolder">News Source:&nbsp;</span> Economic Times </div>
-            <div class="pub"><span style="color:black;font-weight:bolder">Updated On:&nbsp;</span> Dec 02, 2020, 08.50 PM IST</div>
-            <div class="btn">
-              <a href='https://economictimes.indiatimes.com/jobs/iit-bhu-students-receive-396-job-offers-including-ppos/articleshow/79533466.cms'><button>Read more</button></a>
-            </div>
-          </div>
-        </div>
-        <div class="post">
-          <img src="https://img.etimg.com/thumb/msid-79459833,width-300,imgsize-386073,,resizemode-4,quality-100/job2.jpg" alt="Avatar" class="slider-image">
-          <div class="content">
-            <div class="title"> <a href="https://economictimes.indiatimes.com/jobs/pharma-hiring-to-remain-conservative-despite-pace-in-vaccine-development-study/articleshow/79459843.cms?utm_source=contentofinterest&utm_medium=text&utm_campaign=cppst">
-                Pharma hiring to remain conservative despite pace in vaccine development</a></div>
-            <div class="author"><span style="color:black;font-weight:bolder"> Author:&nbsp;</span> Riya Bhatia </div>
-            <div class="newssrc"><span style="color:black;font-weight:bolder">News Source:&nbsp;</span> Economic Times </div>
-            <div class="pub"><span style="color:black;font-weight:bolder">Updated On:&nbsp;</span> Nov 28, 2020, 11.58 PM IST</div>
-            <div class="btn">
-              <a href="https://economictimes.indiatimes.com/jobs/pharma-hiring-to-remain-conservative-despite-pace-in-vaccine-development-study/articleshow/79459843.cms?utm_source=contentofinterest&utm_medium=text&utm_campaign=cppst"><button>Read more</button></a>
-            </div>
-          </div>
-        </div>
+        <?php
+        }
+        ?>
       </div>
     </div>
   </div>
