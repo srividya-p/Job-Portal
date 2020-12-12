@@ -3,7 +3,7 @@ include('include/header.php');
 include('include/sidebar.php');
 ?>
 
-<p><a href="dashboard.php" >Dashboard</a>&nbsp;/&nbsp;<a href="admin_account.php">Admin Accounts</a></p>
+<p><a href="dashboard.php">Dashboard</a>&nbsp;/&nbsp;<a href="admin_account.php">Admin Accounts</a></p>
 <div class="row">
     <div class="col">
         <h1 class="page-header" style="font-size: 25px;">
@@ -72,10 +72,14 @@ include('include/sidebar.php');
 <!-- datatables plugin -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/r-2.2.6/datatables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/r-2.2.6/datatables.min.js"></script>
 
 <script>
     $(document).ready(function() {
-        $('#example').DataTable();
+        $('#example').DataTable({
+            responsive: true
+        });
     });
 </script>
 
