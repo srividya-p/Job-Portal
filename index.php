@@ -91,42 +91,27 @@ if (isset($_POST['submit'])) {
     </div>
   </div>
   <br><br>
+
   <div class="head">
-    <br>
     <div class="heading"> Job Categories</div>
-  </div> <br><br>
-  <div id="current">
-    <div>
-      <br><br>
-      <div class="cat">
-        <ul class="category">
-          <li><a class="cat-but" href="seeker_signin.php">Web Development</a></li><br><br><br>
-          <li><a class="cat-but" href="seeker_signin.php">Graphic Designing</a></li><br><br><br>
-          <li><a class="cat-but" href="seeker_signin.php">Logistics</a></li><br><br><br>
-          <li><a class="cat-but" href="seeker_signin.php">Advertising</a></li><br><br><br>
-        </ul>
-      </div>
-      <div class="cat">
-        <ul class="category">
-          <li><a class="cat-but" href="seeker_signin.php">Consultancy</a></li><br><br><br>
-          <li><a class="cat-but" href="seeker_signin.php">Pharma</a></li><br><br><br>
-          <li><a class="cat-but" href="seeker_signin.php">Telecom Software</a></li><br><br><br>
-          <li><a class="cat-but" href="seeker_signin.php">Marketing</a></li><br><br><br>
-        </ul>
-      </div>
-      <div class="cat">
-        <ul class="category">
-          <li><a class="cat-but" href="seeker_signin.php">Programming</a></li><br><br><br>
-          <li><a class="cat-but" href="seeker_signin.php">Analytics</a></li><br><br><br>
-          <li><a class="cat-but" href="seeker_signin.php">Accounting</a></li><br><br><br>
-          <li><a class="cat-but" href="seeker_signin.php">Content Writing</a></li><br><br><br>
-        </ul>
-      </div>
-    </div>
   </div>
+
+  <div id="current">
+    <a class="cat-but" href="seeker_signin.php">Web Development</a>
+    <a class="cat-but" href="seeker_signin.php">Graphic Designing</a>
+    <a class="cat-but" href="seeker_signin.php">Logistics</a>
+
+    <a class="cat-but" href="seeker_signin.php">Consultancy</a>
+    <a class="cat-but" href="seeker_signin.php">Pharma</a>
+    <a class="cat-but" href="seeker_signin.php">Telecom Software</a>
+
+    <a class="cat-but" href="seeker_signin.php">Programming</a>
+    <a class="cat-but" href="seeker_signin.php">Analytics</a>
+    <a class="cat-but" href="seeker_signin.php">Accounting</a>
   </div>
   <br><br>
 </body>
+
 <?php
 include('include/footer.php')
 ?>
