@@ -95,7 +95,7 @@ if (isset($_POST['submit'])) {
             $email->addTo($forgot_email, "");
             $email->addContent("text/html", $content);
 
-            $sendgrid = new \SendGrid("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");
+            $sendgrid = new \SendGrid("Enter your Sendgrid API Key here");
 
             try {
                 $response = $sendgrid->send($email);
